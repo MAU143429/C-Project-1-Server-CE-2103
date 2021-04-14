@@ -16,6 +16,7 @@ public:
     int ref_count;
     int *value_address;
 
+
     int getSize() const {
         return size;
     }
@@ -56,30 +57,11 @@ public:
         Data_Type::name = name;
     }
 
-    /**
-     * Getter for the count of the variable
-     * @return the int variable
-     */
-    virtual int getCount() const {
-        return count;
-    }
-
-    /**
-     * @brief Setter for count
-     * @param the count integer
-     */
-    virtual void setCount(int count) {
-        Data_Type::count = count;
-    }
-    /**
-     * @brief
-     * @return
-     */
-    virtual string getValue() const {
+    const char *getValue() const {
         return value;
     }
 
-    virtual void setValue( string value) {
+    void setValue(const char *value) {
         Data_Type::value = value;
     }
 };
