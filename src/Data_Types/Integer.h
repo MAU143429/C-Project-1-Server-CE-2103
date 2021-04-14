@@ -4,33 +4,22 @@
 #ifndef C_IDE_INTEGER_H
 #define C_IDE_INTEGER_H
 #include <string>
-#include "Datatype.h"
+#include "Data_Type.h"
+
 
 using namespace std;
 
-class Integer: public Datatype {
-private:
-    string name;
-    string value;
-    int count;
+class Integer: public Data_Type {
+
 public:
-    Integer(string name, string value){
+    Integer(string name, const char *value){
         this->name = name;
         this->value = value;
-        this->count = count;
-        this->count = 1;
+        this->ref_count = 0;
+        this->size = 4;
+        this->value_address = nullptr;
+
     }
-    string getName() const;
-
-    void setName(string name);
-
-    int getCount() const;
-
-    void setCount(int count);
-
-    string getValue() const override;
-
-    void setValue(string value) override;
 
 };
 

@@ -4,33 +4,24 @@
 
 #ifndef C_IDE_CHAR_H
 #define C_IDE_CHAR_H
-#include "Datatype.h"
+#include "Data_Type.h"
 
 using namespace std;
 
-class Char: public Datatype {
-private:
-    string name;
-    string value;
-    int count;
+class Char: public Data_Type {
+
 
 public:
-    Char(string name, char value, int count){
+
+    Char(string name, const char *value){
         this->name = name;
         this->value = value;
-        this->count = count;
-    }
-    string getName() const override;
+        this->ref_count = 0;
+        this->size = 1;
+        this->value_address = nullptr;
 
-    void setName(string name) override;
 
-    int getCount() const override;
-
-    void setCount(int count) override;
-
-    string getValue() const override;
-
-    void setValue(string value) override;
+    };
 
 };
 
