@@ -6,27 +6,22 @@
 #define C_IDE_FLOAT_H
 
 
-#include "Datatype.h"
+#include "Data_Type.h"
 
 using namespace std;
 
-class Float: public Datatype {
-private:
-    string name;
-    string value;
-    int count;
+class Float: public Data_Type {
+
 public:
-    string getName() const override;
 
-    void setName(string name) override;
+    Float(string name, const char *value){
+        this->name = name;
+        this->value = value;
+        this->ref_count = 0;
+        this->size = 4;
+        this->value_address = nullptr;
 
-    int getCount() const override;
-
-    void setCount(int count) override;
-
-    string getValue() const override;
-
-    void setValue(string value) override;
+    }
 
 };
 

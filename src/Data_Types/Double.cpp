@@ -5,25 +5,25 @@
 #include "Double.h"
 
 string Double::getName() const {
-    return Datatype::getName();
+    return Data_Type::getName();
 }
 
 void Double::setName(string name) {
-    Datatype::setName(name);
+    Data_Type::setName(name);
 }
 
 int Double::getCount() const {
-    return Datatype::getCount();
+    return Data_Type::getCount();
 }
 
 void Double::setCount(int count) {
-    Datatype::setCount(count);
+    Data_Type::setCount(count);
 }
 
 string Double::getValue() const {
-    return Datatype::getValue();
+    return Data_Type::getValue();
 }
 
 void Double::setValue(string value) {
-    Datatype::setValue(value);
+    Data_Type::setValue(value);
 }

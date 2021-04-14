@@ -5,25 +5,25 @@
 #include "Char.h"
 
 string Char::getName() const {
-    return Datatype::getName();
+    return Data_Type::getName();
 }
 
 void Char::setName(const string name) {
-    Datatype::setName(name);
+    Data_Type::setName(name);
 }
 
 int Char::getCount() const {
-    return Datatype::getCount();
+    return Data_Type::getCount();
 }
 
 void Char::setCount(int count) {
-    Datatype::setCount(count);
+    Data_Type::setCount(count);
 }
 
 string Char::getValue() const {
-    return Datatype::getValue();
+    return Data_Type::getValue();
 }
 
 void Char::setValue(string value) {
-    Datatype::setValue(value);
+    Data_Type::setValue(value);
 }

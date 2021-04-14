@@ -5,25 +5,25 @@
 #include "Long.h"
 
 string Long::getName() const {
-    return Datatype::getName();
+    return Data_Type::getName();
 }
 
 void Long::setName(string name) {
-    Datatype::setName(name);
+    Data_Type::setName(name);
 }
 
 int Long::getCount() const {
-    return Datatype::getCount();
+    return Data_Type::getCount();
 }
 
 void Long::setCount(int count) {
-    Datatype::setCount(count);
+    Data_Type::setCount(count);
 }
 
 string Long::getValue() const {
-    return Datatype::getValue();
+    return Data_Type::getValue();
 }
 
 void Long::setValue(string value) {
-    Datatype::setValue(value);
+    Data_Type::setValue(value);
 }

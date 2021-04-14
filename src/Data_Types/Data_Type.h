@@ -6,12 +6,40 @@
 #define C_IDE_DATATYPE_H
 #include <string>
 using namespace std;
-class Datatype{
-private:
-    string name;
-    string value;
-    int count;
+class Data_Type{
+
+
 public:
+    string name;
+    const char *value;
+    int size;
+    int ref_count;
+    int *value_address;
+
+    int getSize() const {
+        return size;
+    }
+
+    void setSize(int size) {
+        Data_Type::size = size;
+    }
+
+    int getRefCount() const {
+        return ref_count;
+    }
+
+    void setRefCount(int refCount) {
+        ref_count = refCount;
+    }
+
+    int *getValueAddress() const {
+        return value_address;
+    }
+
+    void setValueAddress(int *valueAddress) {
+        value_address = valueAddress;
+    }
+
     /**
      * @brief Getter for name
      * @return name in string
@@ -25,7 +53,7 @@ public:
      * @param the name of the variable
      */
     virtual void setName(string name) {
-        Datatype::name = name;
+        Data_Type::name = name;
     }
 
     /**
@@ -41,7 +69,7 @@ public:
      * @param the count integer
      */
     virtual void setCount(int count) {
-        Datatype::count = count;
+        Data_Type::count = count;
     }
     /**
      * @brief
@@ -52,7 +80,7 @@ public:
     }
 
     virtual void setValue( string value) {
-        Datatype::value = value;
+        Data_Type::value = value;
     }
 };
 
