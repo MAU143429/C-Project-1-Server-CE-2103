@@ -7,6 +7,7 @@
 #include "Data_Type.h"
 
 
+
 using namespace std;
 
 class Integer: public Data_Type {
@@ -20,6 +21,8 @@ public:
         this->value_address = nullptr;
 
     }
+
+
 
 };
 

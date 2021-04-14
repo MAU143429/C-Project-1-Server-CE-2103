@@ -10,7 +10,6 @@ using namespace std;
 
 class Char: public Data_Type {
 
-
 public:
 
     Char(string name, const char *value){
@@ -19,7 +18,6 @@ public:
         this->ref_count = 0;
         this->size = 1;
         this->value_address = nullptr;
-
 
     };
 
