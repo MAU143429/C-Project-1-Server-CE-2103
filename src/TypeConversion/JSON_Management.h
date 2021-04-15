@@ -11,6 +11,7 @@
 #include "../../lib/rapidjson/document.h"
 #include "../Data_Types/Data_Type.h"
 #include <string>
+#include "iostream"
 
 using namespace rapidjson;
 using namespace std;
@@ -47,7 +48,7 @@ public:
 
         return dataType;
     }
-    string static GetJSONKey(string key, const string &jsonString){
+     static string GetJSONKey(string key, const string &jsonString){
         rapidjson::Document document;
         document.Parse<kParseDefaultFlags>(jsonString.c_str());
 
@@ -60,7 +61,7 @@ public:
         }
      }
 
-    string static NewDatatypeToJSON(Data_Type *dataType){
+    static string NewDatatypeToJSON(Data_Type *dataType){
          
         StringBuffer stringBuffer;
         Writer<StringBuffer> writer(stringBuffer);
