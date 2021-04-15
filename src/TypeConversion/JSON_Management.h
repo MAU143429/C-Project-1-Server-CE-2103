@@ -20,7 +20,7 @@ public:
      static Data_Type * JSONToDataType(const string &jsonString){
         rapidjson::Document document;
         document.Parse<kParseDefaultFlags>(jsonString.c_str());
-        Data_Type *dataType = new Data_Type();
+        auto *dataType = new Data_Type();
 
         if (document.HasMember("name")){
             string name = document["name"].GetString();
@@ -38,43 +38,73 @@ public:
             int ref_count = document["ref_count"].GetInt();
             dataType->setRefCount(ref_count);
         }
-        /*
+
         if (document.HasMember("value_address")){
-            int *ref_count = reinterpret_cast<int *>(document["value_address"].GetInt());
-            dataType->setRefCount(ref_count);
+            int value_address = (document["value_address"].GetInt());
+            int *ref_ptr = &value_address;
+            dataType->setValueAddress(ref_ptr);
         }
-         */
+
         return dataType;
     }
+    string static GetJSONKey(string key, const string &jsonString){
+        rapidjson::Document document;
+        document.Parse<kParseDefaultFlags>(jsonString.c_str());
+
+        if (document.HasMember(key.c_str())){
+            const char *searchedString = document[key.c_str()].GetString();
+            cout << searchedString << endl;
+            return searchedString;
+        }else{
+            cout << "The key wasn't found!" << endl;
+        }
+     }
 
     string static NewDatatypeToJSON(Data_Type *dataType){
-        string name = dataType->getName();
-        const char *value = dataType->getValue();
-        int size = dataType->getSize();
-        int ref_count = dataType->getRefCount();
-        int *value_address = dataType->getValueAddress();
-
-
+         
         StringBuffer stringBuffer;
         Writer<StringBuffer> writer(stringBuffer);
         writer.StartObject();
 
-        writer.Key("name");
-        writer.String(name.c_str());
+        if (!dataType->getName().empty()){
+            writer.Key("name");
+            writer.String(dataType->getName().c_str());
+        } else{
+            writer.Key("name");
+            writer.String("");
+        }
 
-        writer.Key("value");
-        writer.String(value);
+        if (dataType->getValue() != nullptr){
+            writer.Key("value");
+            writer.String(dataType->getValue());
+        } else{
+            writer.Key("value");
+            writer.String("");
+        }
 
-        writer.Key("size");
-        writer.Int(size);
+        if (dataType->getSize() != 0){
+            writer.Key("size");
+            writer.Int(dataType->getSize());
+        }else{
+            writer.Key("size");
+            writer.Int(0);
+        }
 
-        writer.Key("ref_count");
-        writer.Int(ref_count);
+        if (dataType->getRefCount() != 0){
+            writer.Key("ref_count");
+            writer.Int(dataType->getRefCount());
+        }else{
+            writer.Key("ref_count");
+            writer.Int(0);
+        }
 
-        /*
-        writer.Key("value_address");
-        writer.Int(value_address);
-         */
+        if (dataType->getValueAddress() != nullptr){
+            writer.Key("value_address");
+            writer.Int(*(dataType->getValueAddress()));
+        }else{
+            writer.Key("value_address");
+            writer.Int(0);
+        }
 
         writer.EndObject();
         cout << stringBuffer.GetString() << endl;
