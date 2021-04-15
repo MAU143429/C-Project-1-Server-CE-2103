@@ -10,6 +10,7 @@
 #include "../../lib/rapidjson/writer.h"
 #include "../../lib/rapidjson/document.h"
 #include "../Data_Types/Data_Type.h"
+#include "../Convert_message/TypeMessage.h"
 #include <string>
 #include "iostream"
 
@@ -18,6 +19,56 @@ using namespace std;
 
 class JSON_Management{
 public:
+    static string NewDatatypeToJSON(Data_Type *dataType){
+
+        StringBuffer stringBuffer;
+        Writer<StringBuffer> writer(stringBuffer);
+        writer.StartObject();
+
+        if (!dataType->getName().empty()){
+            writer.Key("name");
+            writer.String(dataType->getName().c_str());
+        } else{
+            writer.Key("name");
+            writer.Null();
+        }
+
+        if (dataType->getValue() != nullptr){
+            writer.Key("value");
+            writer.String(dataType->getValue());
+        } else{
+            writer.Key("value");
+            writer.Null();
+        }
+
+        if (dataType->getSize() != 0){
+            writer.Key("size");
+            writer.Int(dataType->getSize());
+        }else{
+            writer.Key("size");
+            writer.Null();
+        }
+
+        if (dataType->getRefCount() != 0){
+            writer.Key("ref_count");
+            writer.Int(dataType->getRefCount());
+        }else{
+            writer.Key("ref_count");
+            writer.Null();
+        }
+
+        if (dataType->getValueAddress() != nullptr){
+            writer.Key("value_address");
+            writer.Int(*(dataType->getValueAddress()));
+        }else{
+            writer.Key("value_address");
+            writer.Null();
+        }
+
+        writer.EndObject();
+        cout << stringBuffer.GetString() << endl;
+        return stringBuffer.GetString();
+    }
      static Data_Type * JSONToDataType(const string &jsonString){
         rapidjson::Document document;
         document.Parse<kParseDefaultFlags>(jsonString.c_str());
@@ -48,68 +99,53 @@ public:
 
         return dataType;
     }
-     static string GetJSONKey(string key, const string &jsonString){
-        rapidjson::Document document;
-        document.Parse<kParseDefaultFlags>(jsonString.c_str());
 
-        if (document.HasMember(key.c_str())){
-            const char *searchedString = document[key.c_str()].GetString();
-            cout << searchedString << endl;
-            return searchedString;
-        }else{
-            cout << "The key wasn't found!" << endl;
-        }
-     }
+    string static NewMessageToJSON(TypeMessage *message){
+        const string& action = message->getAction();
+        const string& type = message->getType();
+        const string& size = message->getSize();
+        const string& name = message->getName();
+        const string& value = message->getValue();
 
-    static string NewDatatypeToJSON(Data_Type *dataType){
-         
+
         StringBuffer stringBuffer;
         Writer<StringBuffer> writer(stringBuffer);
         writer.StartObject();
 
-        if (!dataType->getName().empty()){
-            writer.Key("name");
-            writer.String(dataType->getName().c_str());
-        } else{
-            writer.Key("name");
-            writer.String("");
-        }
+        writer.Key("action");
+        writer.String(action.c_str());
 
-        if (dataType->getValue() != nullptr){
-            writer.Key("value");
-            writer.String(dataType->getValue());
-        } else{
-            writer.Key("value");
-            writer.String("");
-        }
+        writer.Key("type");
+        writer.String(type.c_str());
 
-        if (dataType->getSize() != 0){
-            writer.Key("size");
-            writer.Int(dataType->getSize());
-        }else{
-            writer.Key("size");
-            writer.Int(0);
-        }
+        writer.Key("size");
+        writer.String(size.c_str());
 
-        if (dataType->getRefCount() != 0){
-            writer.Key("ref_count");
-            writer.Int(dataType->getRefCount());
-        }else{
-            writer.Key("ref_count");
-            writer.Int(0);
-        }
+        writer.Key("name");
+        writer.String(name.c_str());
 
-        if (dataType->getValueAddress() != nullptr){
-            writer.Key("value_address");
-            writer.Int(*(dataType->getValueAddress()));
-        }else{
-            writer.Key("value_address");
-            writer.Int(0);
-        }
+        writer.Key("value");
+        writer.String(value.c_str());
+
 
         writer.EndObject();
         cout << stringBuffer.GetString() << endl;
         return stringBuffer.GetString();
     }
+    static string GetJSONString(string key, const string &jsonString){
+        rapidjson::Document document;
+        document.Parse<kParseDefaultFlags>(jsonString.c_str());
+        const char *searchedString;
+        if (document.HasMember(key.c_str())){
+            if (document[key.c_str()].IsString()){
+                searchedString = document[key.c_str()].GetString();
+                cout << searchedString << endl;
+            }
+            return searchedString;
+        }else {
+            cout << "key not found" << endl;
+        }
+    }
+
 };
 #endif //PROYECTO_1_DATOS_II_SERVER_C__JSON_MANAGEMENT_H

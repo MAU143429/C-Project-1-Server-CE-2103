@@ -1,21 +1,20 @@
 //
-// Created by njohnson on 4/2/21.
+// Created by njohnson on 4/14/21.
 //
 
-#ifndef C_IDE_TYPEMESSAGE_H
-#define C_IDE_TYPEMESSAGE_H
+#ifndef PROYECTO_1_DATOS_II_SERVER_C__TYPEMESSAGE_H
+#define PROYECTO_1_DATOS_II_SERVER_C__TYPEMESSAGE_H
 #include <string>
 
 using namespace std;
-
 class TypeMessage {
-private:
-    string type,modifyValue,action,name,value, size ;
-
 public:
-    const string &getSize() const;
-
-    void setSize(const string &size);
+    string type;
+    string modifyValue;
+    string action;
+    string name;
+    string value;
+    string size;
 
     const string &getType() const;
 
@@ -37,7 +36,11 @@ public:
 
     void setValue(const string &value);
 
+    const string &getSize() const;
+
+    void setSize(const string &size);
+
 };
 
 
-#endif //C_IDE_TYPEMESSAGE_H
+#endif //PROYECTO_1_DATOS_II_SERVER_C__TYPEMESSAGE_H

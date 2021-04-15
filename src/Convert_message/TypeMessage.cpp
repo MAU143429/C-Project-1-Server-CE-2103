@@ -1,5 +1,5 @@
 //
-// Created by njohnson on 4/2/21.
+// Created by njohnson on 4/14/21.
 //
 
 #include "TypeMessage.h"
@@ -51,6 +51,3 @@ const string &TypeMessage::getSize() const {
 void TypeMessage::setSize(const string &size) {
     TypeMessage::size = size;
 }
-
-
-
