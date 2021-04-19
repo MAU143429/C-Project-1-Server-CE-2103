@@ -57,9 +57,9 @@ public:
             writer.Null();
         }
 
-        if (dataType->getValueAddress() != nullptr){
+        if (dataType->getValueAddress() != 0){
             writer.Key("value_address");
-            writer.Int(*(dataType->getValueAddress()));
+            writer.Int(dataType->getValueAddress());
         }else{
             writer.Key("value_address");
             writer.Null();
@@ -93,7 +93,7 @@ public:
 
         if (document.HasMember("value_address")){
             int value_address = (document["value_address"].GetInt());
-            int *ref_ptr = &value_address;
+            int ref_ptr = value_address;
             dataType->setValueAddress(ref_ptr);
         }
 

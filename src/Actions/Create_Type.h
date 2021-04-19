@@ -11,6 +11,13 @@
 #include "stdlib.h"
 #include "../Data_Types/Data_Type.h"
 #include "../Data_Types/SimplyList.h"
+#include "../TypeConversion/JSON_Management.h"
+#include "../Data_Types/Integer.h"
+#include "../Data_Types/Long.h"
+#include "../Data_Types/Float.h"
+#include "../Data_Types/Double.h"
+#include "../Data_Types/Char.h"
+
 using namespace std;
 
 static const auto SUM_OPERATOR = "+";
@@ -51,9 +58,27 @@ public:
         return false;
     }
     template <typename T>
-    string Create_DataType(T element){
+    static T Create_DataType(const string &jsonString){
 
-        Init_List();
+        string message2 = JSON_Management::GetJSONString("type", jsonString);
+        string num = JSON_Management::GetJSONString("value", jsonString);
+
+        if(message2 == "Integer"){
+            auto createint = Integer(JSON_Management::GetJSONString("name", jsonString),num.c_str());
+        }else if(message2 == "Long"){
+            auto createlong = Long(JSON_Management::GetJSONString("name", jsonString),num.c_str());
+        }else if(message2 == "Float"){
+            auto createfloat = Float(JSON_Management::GetJSONString("name", jsonString),num.c_str());
+        }else if(message2 == "Double"){
+            auto createdouble = Double(JSON_Management::GetJSONString("name", jsonString),num.c_str());
+        }else if(message2 == "Char"){
+            auto createchar = Char(JSON_Management::GetJSONString("name", jsonString),num.c_str());
+        }
+
+
+        // append element "Guarda el valor en el malloc y retorna offset"
+        // agregar el valor de offset al objeto
+        // append memory map "Guarda el objeto completo en el mapa de memoria"
         return "ESTO ES FASE DE PRUEBA";
 
 

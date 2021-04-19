@@ -6,6 +6,7 @@
 #include <string>
 #include "Data_Type.h"
 #include "../Actions/Convert_Value.h"
+#include "../MM/Memory_Management.h"
 
 
 
@@ -29,9 +30,9 @@ public:
         this->intvalue = Convert_Value::classify_type<int>("Integer",value);
         this->ref_count = 0;
         this->size = 4;
-        this->value_address = nullptr;
+        this->value_address = Memory_Management::getInstance()->appendElem(intvalue);
         this->type = "Integer";
-        cout<<"Se creo un objeto int de nombre"<< this->name << "con un valor de" << this->intvalue << endl;
+        cout<<"Se creo un objeto int de nombre "<< this->name << " con un valor de " << this->intvalue <<"almacenado en el offset numero" << value_address << endl;
     }
 
 

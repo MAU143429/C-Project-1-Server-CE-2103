@@ -24,7 +24,7 @@ public:
     const char *value;
     int size;
     int ref_count;
-    int *value_address;
+    int value_address;
 
 
 
@@ -44,11 +44,11 @@ public:
         ref_count = refCount;
     }
 
-    int *getValueAddress() const {
+    int getValueAddress() const {
         return value_address;
     }
 
-    void setValueAddress(int *valueAddress) {
+    void setValueAddress(int valueAddress) {
         value_address = valueAddress;
     }
 

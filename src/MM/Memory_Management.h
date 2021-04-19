@@ -9,6 +9,8 @@
 #include "../Data_Types/SimplyList.h"
 #include "../Data_Types/Values_chain.h"
 #include "../Data_Types/Data_Type.h"
+#include "sstream"
+#include "string"
 
 
 using namespace std;
@@ -16,33 +18,44 @@ using namespace std;
 
 class Memory_Management{
 
+
+private:
+    Memory_Management();
+    static Memory_Management* unique_instance;
+
 public:
-
-    template<typename T>
-
-    static SimplyList<type> *empty_addresses;
-
-
-    Data_Type *ptr;
-    ptr = (Data_type*) malloc(1000);
-
-    int appendElement(T element){
-
-        int addr;
-
-        if(){
-            T *temp = (T)
-        }
+    void *ptr;
+    int offset;
+    static Memory_Management *getInstance();
+    Values_chain<int> Recycling_addr;
 
 
 
 
-
-
+    void InitMalloc(size_t size){
+        ptr = malloc(size);
+        offset = 1;
     }
 
-
-
+    template<typename T>
+    int appendElem(T element){
+        int addr;
+        int newaddr;
+        if(Recycling_addr.Empty()){
+            T *temp = (T *)ptr;
+            *(temp+offset) = element;
+            addr = offset;
+            offset++;
+            return addr;
+        }else{
+            int newaddr = Recycling_addr.getFirst();
+            T *temp = (T *)ptr;
+            *(temp+newaddr) = element;
+            addr = newaddr;
+            Recycling_addr.delFirst();
+            return addr;
+        }
+    }
 };
 
 

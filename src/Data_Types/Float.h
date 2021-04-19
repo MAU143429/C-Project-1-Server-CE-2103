@@ -28,7 +28,7 @@ public:
         this->floatvalue = Convert_Value::classify_type<float >("Float",value);
         this->ref_count = 0;
         this->size = 4;
-        this->value_address = nullptr;
+        this->value_address = 0;
         this->type="Float";
 
         cout<<"Se creo un objeto float de nombre"<< this->name << "con un valor de" << this->floatvalue << endl;

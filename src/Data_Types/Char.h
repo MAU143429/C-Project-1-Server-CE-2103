@@ -26,7 +26,7 @@ public:
         this->chaarvalue = Convert_Value::classify_type<char>("Char",value);
         this->ref_count = 0;
         this->size = 1;
-        this->value_address = nullptr;
+        this->value_address = 0;
         this->type = "Char";
         cout<<"Se creo un objeto char de nombre"<< this->name << "con un valor de" << this->chaarvalue << endl;
 
