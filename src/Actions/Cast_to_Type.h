@@ -8,6 +8,7 @@
 #include "iostream"
 #include "sstream"
 #include "stdlib.h"
+#include "Cast_to_Type.h"
 #include "../Data_Types/Data_Type.h"
 #include "../Data_Types/SimplyList.h"
 using namespace std;
@@ -34,7 +35,12 @@ public:
     }
     template <typename T>
     static T Cast_char(const char *value){
-        return atof(value);
+
+        char varchar1;
+        std::stringstream ss;
+        ss << value;
+        ss >> varchar1;
+        return varchar1;
     }
 
 };

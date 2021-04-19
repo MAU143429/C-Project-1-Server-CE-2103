@@ -19,7 +19,6 @@ static const auto DIV_OPERATOR = "/";
 static const auto MULTI_OPERATOR = "*";
 
 static SimplyList<string> *Operator_list;
-template <typename T>
 class Create_Type {
 
 public:
@@ -51,8 +50,12 @@ public:
         }
         return false;
     }
-
+    template <typename T>
     string Create_DataType(T element){
+
+        Init_List();
+
+
 
 
         //TODO Entra objeto de tipo DataType para ser creado

@@ -5,41 +5,15 @@
 #include "src/TypeConversion/ObjectToJSON.h"
 #include "src/TypeConversion/JSON_Management.h"
 #include "src/Actions/Cast_to_Type.h"
+#include "src/Actions/Convert_Value.h"
 
 
 int main() {
 
+    string change = "Char";
+    const char *valor = "B";
 
-
-    //This method allows to classify the data that you want to convert to a specific data type
-    /**
-    int varint;
-    float varfloat;
-    double vardouble;
-    long varlong;
-
-
-    string tipo = "Float";
-    const char *valor = "5.678356458745874877845";
-
-    if(tipo == "Integer"){
-        varint = Cast_to_Type::Cast_int<int>(valor);
-        cout<< "Ya soy entero" << varint << endl;
-    }else if(tipo == "Long"){
-        varlong = Cast_to_Type::Cast_long<long>(valor);
-        cout<< varlong<< endl;
-    }else if(tipo == "Float"){
-        varfloat = Cast_to_Type::Cast_float<float>(valor);
-        cout<< varfloat << endl;
-    }else if(tipo == "Double"){
-        vardouble = Cast_to_Type::Cast_double<double>(valor);
-        cout<< vardouble << endl;
-    }
-    */
-
-
-
-
+    Convert_Value::classify_type<char>(change,valor);
 
 
     /**
