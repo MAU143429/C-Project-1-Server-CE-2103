@@ -54,7 +54,7 @@ public:
     string Create_DataType(T element){
 
         Init_List();
-
+        return "ESTO ES FASE DE PRUEBA";
 
 
 

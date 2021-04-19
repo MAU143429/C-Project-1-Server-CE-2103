@@ -1,5 +1,5 @@
 //
-// Created by njohnson on 4/14/21.
+// Created by mau14 on 19/4/21.
 //
 
 #include "TypeMessage.h"
@@ -12,12 +12,20 @@ void TypeMessage::setType(const string &type) {
     TypeMessage::type = type;
 }
 
-const string &TypeMessage::getModifyValue() const {
-    return modifyValue;
+const string &TypeMessage::getName() const {
+    return name;
 }
 
-void TypeMessage::setModifyValue(const string &modifyValue) {
-    TypeMessage::modifyValue = modifyValue;
+void TypeMessage::setName(const string &name) {
+    TypeMessage::name = name;
+}
+
+const string &TypeMessage::getModifyvalue() const {
+    return modifyvalue;
+}
+
+void TypeMessage::setModifyvalue(const string &modifyvalue) {
+    TypeMessage::modifyvalue = modifyvalue;
 }
 
 const string &TypeMessage::getAction() const {
@@ -26,14 +34,6 @@ const string &TypeMessage::getAction() const {
 
 void TypeMessage::setAction(const string &action) {
     TypeMessage::action = action;
-}
-
-const string &TypeMessage::getName() const {
-    return name;
-}
-
-void TypeMessage::setName(const string &name) {
-    TypeMessage::name = name;
 }
 
 const string &TypeMessage::getValue() const {

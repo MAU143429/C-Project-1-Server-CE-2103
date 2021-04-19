@@ -144,6 +144,7 @@ public:
             return searchedString;
         }else {
             cout << "key not found" << endl;
+            return "PRUEBA 2";
         }
     }
 

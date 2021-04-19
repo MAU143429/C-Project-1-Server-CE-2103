@@ -1,18 +1,19 @@
 //
-// Created by njohnson on 4/14/21.
+// Created by mau14 on 19/4/21.
 //
 
 #ifndef PROYECTO_1_DATOS_II_SERVER_C__TYPEMESSAGE_H
 #define PROYECTO_1_DATOS_II_SERVER_C__TYPEMESSAGE_H
-#include <string>
-
+#include "string"
 using namespace std;
+
 class TypeMessage {
+
 public:
     string type;
-    string modifyValue;
-    string action;
     string name;
+    string modifyvalue;
+    string action;
     string value;
     string size;
 
@@ -20,17 +21,17 @@ public:
 
     void setType(const string &type);
 
-    const string &getModifyValue() const;
+    const string &getName() const;
 
-    void setModifyValue(const string &modifyValue);
+    void setName(const string &name);
+
+    const string &getModifyvalue() const;
+
+    void setModifyvalue(const string &modifyvalue);
 
     const string &getAction() const;
 
     void setAction(const string &action);
-
-    const string &getName() const;
-
-    void setName(const string &name);
 
     const string &getValue() const;
 
