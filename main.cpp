@@ -10,27 +10,9 @@
 
 int main() {
 
-    string change = "Char";
-    const char *valor = "B";
-
-    Convert_Value::classify_type<char>(change,valor);
-
-
-    /**
-    auto *message = new TypeMessage();
-    message->setName("suma");
-    message->setModifyValue("23");
-    message->setSize("8");
-    message->setValue("14");
-    message->setAction("CREATE");
-    message->setType("Integer");
-    
-
-
-    string newsms = ObjectToJSON::NewMessageToJSON(message);
-    //JSON_Management::GetJSONKey("action",newsms);
-    //Convert_request::Select_Type_Message(newsms);
-*/
+    string change = "Long";
+    const char *valor = "5874594895";
+    cout << Convert_Value::classify_type<long>(change,valor);
     return 0;
 
 }

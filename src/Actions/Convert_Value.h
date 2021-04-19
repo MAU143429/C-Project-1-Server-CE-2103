@@ -26,26 +26,23 @@ public:
 
         if(type == "Integer"){
             varint = Cast_to_Type::Cast_int<int>(value);
-            cout<< "Ya soy entero" << varint << endl;
+            return varint;
         }else if(type == "Long"){
             varlong = Cast_to_Type::Cast_long<long>(value);
-            cout<< varlong<< endl;
+            return varlong;
         }else if(type == "Float"){
             varfloat = Cast_to_Type::Cast_float<float>(value);
-            cout<< varfloat << endl;
+            return varfloat;
         }else if(type == "Double"){
             vardouble = Cast_to_Type::Cast_double<double>(value);
-            cout<< vardouble << endl;
+            return vardouble;
         }else if(type == "Char"){
             varchar = Cast_to_Type::Cast_char<char>(value);
-            cout << varchar << endl;
+            return varchar;
         }
 
 
     }
-
-
-
 
 };
 
