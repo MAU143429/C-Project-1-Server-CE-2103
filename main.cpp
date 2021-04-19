@@ -16,6 +16,9 @@ int main() {
     auto message = new TypeMessage();
     message->setName("Mau");
     message->setAction("CREATE");
+    message->setType("Char");
+    message->setValue("jsdhgsjhd");
+    message->setSize("8");
 
     string newsms = JSON_Management::NewMessageToJSON(message);
 

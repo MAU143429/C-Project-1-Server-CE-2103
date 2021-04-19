@@ -31,7 +31,7 @@ public:
     }
     template <typename T>
     static T Cast_double(const char *value){
-        return atof(value);
+        return strtod(value,NULL);
     }
     template <typename T>
     static T Cast_char(const char *value){

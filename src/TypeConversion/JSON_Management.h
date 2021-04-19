@@ -139,12 +139,12 @@ public:
         if (document.HasMember(key.c_str())){
             if (document[key.c_str()].IsString()){
                 searchedString = document[key.c_str()].GetString();
-                cout << searchedString << endl;
+
             }
             return searchedString;
         }else {
             cout << "key not found" << endl;
-            return "PRUEBA 2";
+
         }
     }
 

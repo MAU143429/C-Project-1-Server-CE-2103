@@ -27,13 +27,6 @@ void Integer::setValue(string value) {
     Integer::value = value;
 }
 
-int Integer::getCount() const {
-    return count;
-}
-
-void Integer::setCount(int count) {
-    Integer::count = count;
-}
 
 
 

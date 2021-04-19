@@ -11,10 +11,21 @@ class Data_Type{
 
 public:
     string name;
+    string type;
+
+    const string &getType() const {
+        return type;
+    }
+
+    void setType(const string &type) {
+        Data_Type::type = type;
+    }
+
     const char *value;
     int size;
     int ref_count;
     int *value_address;
+
 
 
     int getSize() const {
