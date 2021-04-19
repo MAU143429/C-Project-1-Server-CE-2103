@@ -17,25 +17,25 @@ class Cast_to_Type {
 
 public:
     template <typename T>
-    T Cast_Type(const char *value){
-
-        if( T ){
+    static T Cast_int(const char *value){
             return atoi(value);
-        }else if(T<long> == long){
-            return atol(value);
-
-        }else if(T<float> == float){
-            return atof(value);
-
-        }else if(T<double> == double){
-            return atof(value);
-
-        }else if(T<char> == char){
-            return *value;
-        }
     }
-
-
+    template <typename T>
+    static T Cast_long(const char *value){
+        return atol(value);
+    }
+    template <typename T>
+    static T Cast_float(const char *value){
+        return atof(value);
+    }
+    template <typename T>
+    static T Cast_double(const char *value){
+        return atof(value);
+    }
+    template <typename T>
+    static T Cast_char(const char *value){
+        return atof(value);
+    }
 
 };
 

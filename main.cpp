@@ -9,24 +9,33 @@
 
 int main() {
 
-    string tipo = "Integer";
-    const char *valor = "1234";
+
+
+    //This method allows to classify the data that you want to convert to a specific data type
+    /**
+    int varint;
+    float varfloat;
+    double vardouble;
+    long varlong;
+
+
+    string tipo = "Float";
+    const char *valor = "5.678356458745874877845";
 
     if(tipo == "Integer"){
-        Cast_to_Type::Cast_Type<int>(valor);
+        varint = Cast_to_Type::Cast_int<int>(valor);
+        cout<< "Ya soy entero" << varint << endl;
     }else if(tipo == "Long"){
-        Cast_to_Type::Cast_Type<long>(valor);
-
+        varlong = Cast_to_Type::Cast_long<long>(valor);
+        cout<< varlong<< endl;
     }else if(tipo == "Float"){
-        Cast_to_Type::Cast_Type<float>(valor);
-
+        varfloat = Cast_to_Type::Cast_float<float>(valor);
+        cout<< varfloat << endl;
     }else if(tipo == "Double"){
-        Cast_to_Type::Cast_Type<double>(valor);
-
-    }else if(tipo == "Char"){
-        Cast_to_Type::Cast_Type<char>(valor);
+        vardouble = Cast_to_Type::Cast_double<double>(valor);
+        cout<< vardouble << endl;
     }
-
+    */
 
 
 
