@@ -132,7 +132,7 @@ public:
         cout << stringBuffer.GetString() << endl;
         return stringBuffer.GetString();
     }
-    static string GetJSONString(string key, const string &jsonString){
+    string static GetJSONString(string key, const string &jsonString){
         rapidjson::Document document;
         document.Parse<kParseDefaultFlags>(jsonString.c_str());
         const char *searchedString;
