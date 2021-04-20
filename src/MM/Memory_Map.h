@@ -31,6 +31,7 @@ public:
         Memory_Map::getInstance()->PrintMemoryMap(memory_map);
 
     }
+
     void PrintMemoryMap(SimplyList<Data_Type> simplyList){
 
         cout << " ################################  SERVER MEMORY MAP    ################################ \n" << endl;
@@ -64,6 +65,18 @@ public:
 
         }
         cout << " ################################          END          ################################    \n" << endl;
+    }
+
+     bool BoolSearch(string name, string type){
+
+        for (int i = 0; i < memory_map.getLen(); ++i) {
+
+            if(memory_map.getNode(i)->getValue().getName() == name and memory_map.getNode(i)->getValue().getType() == type){
+                return true;
+            }
+        }
+         return false;
+
     }
 
 };

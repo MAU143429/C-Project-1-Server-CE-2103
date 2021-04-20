@@ -23,18 +23,13 @@ public:
         string type = JSON_Management::GetJSONString("type", jsonString);
         string name = JSON_Management::GetJSONString("name", jsonString);
 
-        /**if(){
-
-
-            return false
+        if(Memory_Map::getInstance()->BoolSearch(name,type)){
+            cout<<"SI EXISTE LA VARIABLE CONSULTADA"<< endl;
+            return true;
         }else{
-            return false
-        }*/
-
-
-
-
-
+            cout<<"NO EXISTE LA VARIABLE CONSULTADA"<< endl;
+            return false;
+        };
 
     }
 

@@ -29,6 +29,7 @@ public:
             cout << "SOY UN ARCHIVO AL QUE VAN A MODIFICAR" << endl;
         } else if (message == "SEARCH") {
             cout << "SOY UN ARCHIVO AL QUE VAN A BUSCAR" << endl;
+            Search_Type::Search_DataType(jsonString);
         }
     }
 };

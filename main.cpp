@@ -29,13 +29,20 @@ int main() {
     message1->setValue("5.345");
     message1->setSize("4");
 
+    auto message2 = new TypeMessage();
+    message2->setName("Naheem");
+    message2->setAction("SEARCH");
+    message2->setType("Integer");
+
+
     string newsms = JSON_Management::NewMessageToJSON(message);
     string newsms1 = JSON_Management::NewMessageToJSON(message1);
+    string newsms2 = JSON_Management::NewMessageToJSON(message2);
 
-    JSON_Management::GetJSONString("action",newsms);
-    JSON_Management::GetJSONString("action",newsms1);
+
     Convert_request::Select_Type_Message(newsms);
     Convert_request::Select_Type_Message(newsms1);
+    Convert_request::Select_Type_Message(newsms2);
 
 
 
