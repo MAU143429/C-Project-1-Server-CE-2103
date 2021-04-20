@@ -7,7 +7,7 @@
 
 #include "iostream"
 #include "../Data_Types/SimplyList.h"
-#include "../Data_Types/Values_chain.h"
+#include "../Data_Types/Recycling_malloc.h"
 #include "../Data_Types/Data_Type.h"
 #include "sstream"
 #include "string"
@@ -27,7 +27,7 @@ public:
     void *ptr;
     int offset;
     static Memory_Management *getInstance();
-    Values_chain<int> Recycling_addr;
+    Recycling_malloc<int> Recycling_addr;
 
 
 
@@ -55,6 +55,12 @@ public:
             Recycling_addr.delFirst();
             return addr;
         }
+    }
+
+    template<typename T>
+    T searchmalloc(int offset){
+        T *temp = (T *)ptr;
+        return *(temp+offset);
     }
 };
 

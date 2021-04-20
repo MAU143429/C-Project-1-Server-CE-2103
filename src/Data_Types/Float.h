@@ -28,10 +28,10 @@ public:
         this->floatvalue = Convert_Value::classify_type<float >("Float",value);
         this->ref_count = 0;
         this->size = 4;
-        this->value_address = 0;
+        this->value_address = Memory_Management::getInstance()->appendElem(floatvalue);
         this->type="Float";
 
-        cout<<"Se creo un objeto float de nombre"<< this->name << "con un valor de" << this->floatvalue << endl;
+        cout<<"Se creo un objeto float de nombre "<< this->name << " con un valor de " << this->floatvalue <<" almacenado en el offset numero " << value_address << endl;
     }
 
 };

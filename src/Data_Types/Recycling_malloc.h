@@ -2,13 +2,13 @@
 // Created by mau14 on 12/4/21.
 //
 
-#ifndef PROYECTO_1_DATOS_II_SERVER_C__VALUES_CHAIN_H
-#define PROYECTO_1_DATOS_II_SERVER_C__VALUES_CHAIN_H
+#ifndef PROYECTO_1_DATOS_II_SERVER_C__RECYCLING_MALLOC_H
+#define PROYECTO_1_DATOS_II_SERVER_C__RECYCLING_MALLOC_H
 
 #include "SimplyList.h"
 
 template<typename T>
-class Values_chain{
+class Recycling_malloc{
 
 private:
     SimplyList<T> Recycling;
@@ -18,7 +18,7 @@ public:
         return this->Recycling.getLen() == 0;
     }
 
-    void queue(T element){
+    void addAddress(T element){
         this->Recycling.append(element);
     }
 
@@ -31,4 +31,4 @@ public:
     }
 };
 
-#endif //PROYECTO_1_DATOS_II_SERVER_C__VALUES_CHAIN_H
+#endif //PROYECTO_1_DATOS_II_SERVER_C__RECYCLING_MALLOC_H

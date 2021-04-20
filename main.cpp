@@ -22,10 +22,20 @@ int main() {
     message->setValue("5236");
     message->setSize("4");
 
+    auto message1 = new TypeMessage();
+    message1->setName("Naheem");
+    message1->setAction("CREATE");
+    message1->setType("Float");
+    message1->setValue("5.345");
+    message1->setSize("4");
+
     string newsms = JSON_Management::NewMessageToJSON(message);
+    string newsms1 = JSON_Management::NewMessageToJSON(message1);
 
     JSON_Management::GetJSONString("action",newsms);
+    JSON_Management::GetJSONString("action",newsms1);
     Convert_request::Select_Type_Message(newsms);
+    Convert_request::Select_Type_Message(newsms1);
 
 
 

@@ -20,6 +20,7 @@ using namespace std;
 class Convert_request {
 
 public:
+
     static void Select_Type_Message(const string &jsonString) {
         string message = JSON_Management::GetJSONString("action", jsonString);
         if (message == "CREATE") {

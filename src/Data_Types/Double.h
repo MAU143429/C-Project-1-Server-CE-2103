@@ -27,9 +27,9 @@ public:
         this->doublevalue = Convert_Value::classify_type<double>("Double",value);
         this->ref_count = 0;
         this->size = 8;
-        this->value_address = 0;
+        this->value_address = Memory_Management::getInstance()->appendElem(doublevalue);
         this->type="Double";
-        cout<<"Se creo un objeto double de nombre"<< this->name << "con un valor de" << this->doublevalue << endl;
+        cout<<"Se creo un objeto double de nombre"<< this->name << "con un valor de" << this->doublevalue << " almacenado en el offset numero " << value_address << endl;
     }
 
 };

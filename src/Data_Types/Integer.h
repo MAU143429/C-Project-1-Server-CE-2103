@@ -32,13 +32,10 @@ public:
         this->size = 4;
         this->value_address = Memory_Management::getInstance()->appendElem(intvalue);
         this->type = "Integer";
-        cout<<"Se creo un objeto int de nombre "<< this->name << " con un valor de " << this->intvalue <<"almacenado en el offset numero" << value_address << endl;
+        cout<<"Se creo un objeto int de nombre "<< this->name << " con un valor de " << this->intvalue <<" almacenado en el offset numero " << value_address << endl;
     }
 
-
-
 };
-
 
 
 #endif //C_IDE_INTEGER_H

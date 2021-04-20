@@ -11,24 +11,24 @@ using namespace std;
 class Char: public Data_Type {
 
 public:
-    char chaarvalue;
+    char charvalue;
 
     char getChaarvalue() const {
-        return chaarvalue;
+        return charvalue;
     }
 
     void setChaarvalue(char chaarvalue) {
-        Char::chaarvalue = chaarvalue;
+        Char::charvalue = chaarvalue;
     }
 
     Char(string name, const char *value){
         this->name = name;
-        this->chaarvalue = Convert_Value::classify_type<char>("Char",value);
+        this->charvalue = Convert_Value::classify_type<char>("Char", value);
         this->ref_count = 0;
         this->size = 1;
-        this->value_address = 0;
+        this->value_address = Memory_Management::getInstance()->appendElem(charvalue);
         this->type = "Char";
-        cout<<"Se creo un objeto char de nombre"<< this->name << "con un valor de" << this->chaarvalue << endl;
+        cout << "Se creo un objeto char de nombre" << this->name << "con un valor de" << this->charvalue << " almacenado en el offset numero " << value_address << endl;
 
     };
 

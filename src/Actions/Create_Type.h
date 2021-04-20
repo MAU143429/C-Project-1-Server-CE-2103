@@ -17,6 +17,7 @@
 #include "../Data_Types/Float.h"
 #include "../Data_Types/Double.h"
 #include "../Data_Types/Char.h"
+#include "../MM/Memory_Map.h"
 
 using namespace std;
 
@@ -65,19 +66,23 @@ public:
 
         if(message2 == "Integer"){
             auto createint = Integer(JSON_Management::GetJSONString("name", jsonString),num.c_str());
+            Memory_Map::getInstance()->append_list(createint);
         }else if(message2 == "Long"){
             auto createlong = Long(JSON_Management::GetJSONString("name", jsonString),num.c_str());
+            Memory_Map::getInstance()->append_list(createlong);
         }else if(message2 == "Float"){
             auto createfloat = Float(JSON_Management::GetJSONString("name", jsonString),num.c_str());
+            Memory_Map::getInstance()->append_list(createfloat);
         }else if(message2 == "Double"){
             auto createdouble = Double(JSON_Management::GetJSONString("name", jsonString),num.c_str());
+            Memory_Map::getInstance()->append_list(createdouble);
         }else if(message2 == "Char"){
             auto createchar = Char(JSON_Management::GetJSONString("name", jsonString),num.c_str());
+            Memory_Map::getInstance()->append_list(createchar);
         }
 
 
-        // append element "Guarda el valor en el malloc y retorna offset"
-        // agregar el valor de offset al objeto
+
         // append memory map "Guarda el objeto completo en el mapa de memoria"
         return "ESTO ES FASE DE PRUEBA";
 
