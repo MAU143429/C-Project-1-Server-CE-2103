@@ -6,6 +6,7 @@
 #define PROYECTO_1_DATOS_II_SERVER_C__SIMPLYLIST_H
 #include <cstdlib>
 #include <iostream>
+#include "../Data_Types/Data_Type.h"
 
 using namespace std;
 
@@ -41,6 +42,11 @@ class SimplyList {
 
 public:
     Node<T> *head = nullptr;
+
+    void setHead(Node<T> *head) {
+        SimplyList::head = head;
+    }
+
     Node<T> *tail = nullptr;
     int len;
 
@@ -115,6 +121,20 @@ public:
 
         }
         return tmp->getValue();
+    }
+
+    Node<T> getNode(int i) {
+
+        if (i >= this->len) {
+            return 0;
+        }
+        Node<T> *tmp = this->head;
+        for (int j = 0; j < i; ++j) {
+
+            tmp = tmp->getNext();
+
+        }
+        return tmp;
     }
 
     bool Search(T element) {

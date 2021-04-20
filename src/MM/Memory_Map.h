@@ -28,11 +28,100 @@ public:
     void append_list(Data_Type element){
 
         memory_map.append(element);
+        Memory_Map::getInstance()->show_memorymap(memory_map);
 
-        if(memory_map.getLen() == 2){
-            cout << memory_map.getHead()->getValue().getName() << " con un valor de  " << Memory_Management::getInstance()->searchmalloc<int>(memory_map.getHead()->getValue().getValueAddress()) <<endl;
-            cout << memory_map.getHead()->getNext()->getValue().getName() << " con un valor de  " << Memory_Management::getInstance()->searchmalloc<float>(memory_map.getHead()->getNext()->getValue().getValueAddress()) <<endl;
+
+    }
+
+    void show_memorymap(SimplyList<Data_Type> list_show){
+        string type,name,size;
+        char valueofchar;
+        int valueofint,position,count;
+        float valueoffloat;
+        double valueofdouble;
+        long valueoflong;
+
+        if(list_show.getHead()->getNext()  != nullptr){
+
+            name = list_show.getHead()->getValue().getName();
+            type = list_show.getHead()->getValue().getType();
+            count = list_show.getHead()->getValue().getRefCount();
+            size = list_show.getHead()->getValue().getSize();
+            position = list_show.getHead()->getValue().getValueAddress();
+
+            if(type == "Integer"){
+                valueofint = Memory_Management::getInstance()->searchmalloc<int>(memory_map.getHead()->getValue().getValueAddress());
+            }else if(type == "Long"){
+                valueoflong = Memory_Management::getInstance()->searchmalloc<long>(memory_map.getHead()->getValue().getValueAddress());
+            }else if(type == "Float"){
+                valueoffloat = Memory_Management::getInstance()->searchmalloc<float>(memory_map.getHead()->getValue().getValueAddress());
+            }else if(type == "Double"){
+                valueofdouble = Memory_Management::getInstance()->searchmalloc<double>(memory_map.getHead()->getValue().getValueAddress());
+            }else if(type == "Char"){
+                valueofchar = Memory_Management::getInstance()->searchmalloc<char>(memory_map.getHead()->getValue().getValueAddress());
+            }
+            cout<< " ################################  SERVER MEMORY MAP    ################################ \n" <<
+                "                             Valor en pos "<< position << "                                 \n" <<
+                "                        NOMBRE DE LA VARIABLE :  " << name << "                             \n" <<
+                "                        TIPO DE DATO :           " << type << "                             \n" <<
+                "                        CON UN VALOR DE :        "<< valueofint <<"                         \n" <<
+                "                        CUENTA CON:               "<< count <<" REFERENCIAS                 \n" <<
+                " ################################          END          ################################    \n" <<endl;
+
+            list_show.setHead(list_show.getHead()->getNext());
+        }else{
+            name = list_show.getHead()->getValue().getName();
+            type = list_show.getHead()->getValue().getType();
+            count = list_show.getHead()->getValue().getRefCount();
+            size = list_show.getHead()->getValue().getSize();
+            position = list_show.getHead()->getValue().getValueAddress();
+
+            if(type == "Integer"){
+                valueofint = Memory_Management::getInstance()->searchmalloc<int>(memory_map.getHead()->getValue().getValueAddress());
+            }else if(type == "Long"){
+                valueoflong = Memory_Management::getInstance()->searchmalloc<long>(memory_map.getHead()->getValue().getValueAddress());
+            }else if(type == "Float"){
+                valueoffloat = Memory_Management::getInstance()->searchmalloc<float>(memory_map.getHead()->getValue().getValueAddress());
+            }else if(type == "Double"){
+                valueofdouble = Memory_Management::getInstance()->searchmalloc<double>(memory_map.getHead()->getValue().getValueAddress());
+            }else if(type == "Char"){
+                valueofchar = Memory_Management::getInstance()->searchmalloc<char>(memory_map.getHead()->getValue().getValueAddress());
+            }
+            cout<< " ################################  SERVER MEMORY MAP    ################################ \n" <<
+                "                             Valor en pos "<< position << "                                 \n" <<
+                "                        NOMBRE DE LA VARIABLE :  " << name << "                             \n" <<
+                "                        TIPO DE DATO :           " << type << "                             \n" <<
+                "                        CON UN VALOR DE :        "<< valueofint <<"                         \n" <<
+                "                        CUENTA CON:               "<< count <<" REFERENCIAS                 \n" <<
+                " ################################          END          ################################    \n" <<endl;
+
         }
+/**
+        for (int i = 0; i < list_show.getLen(); ++i) {
+
+            name = list_show.getNode(i).getValue().getName();
+            type = list_show.getNode(i).getValue().getType();
+            count = list_show.getNode(i).getValue().getRefCount();
+            size = list_show.getNode(i).getValue().getSize();
+            position = list_show.getNode(i).getValue().getValueAddress();
+
+            if(type == "Integer"){
+                valueofint = Memory_Management::getInstance()->searchmalloc<int>(memory_map.getNode(i).getValue().getValueAddress());
+            }else if(type == "Long"){
+                valueoflong = Memory_Management::getInstance()->searchmalloc<long>(memory_map.getNode(i).getValue().getValueAddress());
+            }else if(type == "Float"){
+                valueoffloat = Memory_Management::getInstance()->searchmalloc<float>(memory_map.getNode(i).getValue().getValueAddress());
+            }else if(type == "Double"){
+                valueofdouble = Memory_Management::getInstance()->searchmalloc<double>(memory_map.getNode(i).getValue().getValueAddress());
+            }else if(type == "Char"){
+                valueofchar = Memory_Management::getInstance()->searchmalloc<char>(memory_map.getNode(i).getValue().getValueAddress());
+            }
+
+            cout<< " ################################  SERVER MEMORY MAP    ################################ \n" <<
+                   "                                                                                         \n"
+                   "                        NOMBRE DE LA VARIABLE =  "<< endl;
+
+        }*/
 
     }
 
