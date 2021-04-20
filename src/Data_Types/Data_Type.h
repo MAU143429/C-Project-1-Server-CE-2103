@@ -12,6 +12,10 @@ class Data_Type{
 public:
     string name;
     string type;
+    const char *value;
+    int size;
+    int ref_count;
+    int value_address;
 
     const string &getType() const {
         return type;
@@ -20,11 +24,6 @@ public:
     void setType(const string &type) {
         Data_Type::type = type;
     }
-
-    const char *value;
-    int size;
-    int ref_count;
-    int value_address;
 
 
 

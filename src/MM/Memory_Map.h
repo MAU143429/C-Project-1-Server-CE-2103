@@ -28,101 +28,42 @@ public:
     void append_list(Data_Type element){
 
         memory_map.append(element);
-        Memory_Map::getInstance()->show_memorymap(memory_map);
-
+        Memory_Map::getInstance()->PrintMemoryMap(memory_map);
 
     }
+    void PrintMemoryMap(SimplyList<Data_Type> simplyList){
 
-    void show_memorymap(SimplyList<Data_Type> list_show){
-        string type,name,size;
-        char valueofchar;
-        int valueofint,position,count;
-        float valueoffloat;
-        double valueofdouble;
-        long valueoflong;
+        cout << " ################################  SERVER MEMORY MAP    ################################ \n" << endl;
+        for (int i = 0; i < simplyList.getLen(); ++i) {
 
-        if(list_show.getHead()->getNext()  != nullptr){
-
-            name = list_show.getHead()->getValue().getName();
-            type = list_show.getHead()->getValue().getType();
-            count = list_show.getHead()->getValue().getRefCount();
-            size = list_show.getHead()->getValue().getSize();
-            position = list_show.getHead()->getValue().getValueAddress();
+            string name = simplyList.getNode(i)->getValue().getName();
+            string type = simplyList.getNode(i)->getValue().getType();
+            int count = simplyList.getNode(i)->getValue().getRefCount();
+            int size = simplyList.getNode(i)->getValue().getSize();
+            int position = simplyList.getNode(i)->getValue().getValueAddress();
 
             if(type == "Integer"){
-                valueofint = Memory_Management::getInstance()->searchmalloc<int>(memory_map.getHead()->getValue().getValueAddress());
+                int valueofint = Memory_Management::getInstance()->searchmalloc<int>(memory_map.getNode(i)->getValue().getValueAddress());
             }else if(type == "Long"){
-                valueoflong = Memory_Management::getInstance()->searchmalloc<long>(memory_map.getHead()->getValue().getValueAddress());
+                long valueoflong = Memory_Management::getInstance()->searchmalloc<long>(memory_map.getNode(i)->getValue().getValueAddress());
             }else if(type == "Float"){
-                valueoffloat = Memory_Management::getInstance()->searchmalloc<float>(memory_map.getHead()->getValue().getValueAddress());
+                float valueoffloat = Memory_Management::getInstance()->searchmalloc<float>(memory_map.getNode(i)->getValue().getValueAddress());
             }else if(type == "Double"){
-                valueofdouble = Memory_Management::getInstance()->searchmalloc<double>(memory_map.getHead()->getValue().getValueAddress());
+                double valueofdouble = Memory_Management::getInstance()->searchmalloc<double>(memory_map.getNode(i)->getValue().getValueAddress());
             }else if(type == "Char"){
-                valueofchar = Memory_Management::getInstance()->searchmalloc<char>(memory_map.getHead()->getValue().getValueAddress());
+                char valueofchar = Memory_Management::getInstance()->searchmalloc<char>(memory_map.getNode(i)->getValue().getValueAddress());
             }
-            cout<< " ################################  SERVER MEMORY MAP    ################################ \n" <<
-                "                             Valor en pos "<< position << "                                 \n" <<
-                "                        NOMBRE DE LA VARIABLE :  " << name << "                             \n" <<
-                "                        TIPO DE DATO :           " << type << "                             \n" <<
-                "                        CON UN VALOR DE :        "<< valueofint <<"                         \n" <<
-                "                        CUENTA CON:               "<< count <<" REFERENCIAS                 \n" <<
-                " ################################          END          ################################    \n" <<endl;
 
-            list_show.setHead(list_show.getHead()->getNext());
-        }else{
-            name = list_show.getHead()->getValue().getName();
-            type = list_show.getHead()->getValue().getType();
-            count = list_show.getHead()->getValue().getRefCount();
-            size = list_show.getHead()->getValue().getSize();
-            position = list_show.getHead()->getValue().getValueAddress();
 
-            if(type == "Integer"){
-                valueofint = Memory_Management::getInstance()->searchmalloc<int>(memory_map.getHead()->getValue().getValueAddress());
-            }else if(type == "Long"){
-                valueoflong = Memory_Management::getInstance()->searchmalloc<long>(memory_map.getHead()->getValue().getValueAddress());
-            }else if(type == "Float"){
-                valueoffloat = Memory_Management::getInstance()->searchmalloc<float>(memory_map.getHead()->getValue().getValueAddress());
-            }else if(type == "Double"){
-                valueofdouble = Memory_Management::getInstance()->searchmalloc<double>(memory_map.getHead()->getValue().getValueAddress());
-            }else if(type == "Char"){
-                valueofchar = Memory_Management::getInstance()->searchmalloc<char>(memory_map.getHead()->getValue().getValueAddress());
-            }
-            cout<< " ################################  SERVER MEMORY MAP    ################################ \n" <<
-                "                             Valor en pos "<< position << "                                 \n" <<
-                "                        NOMBRE DE LA VARIABLE :  " << name << "                             \n" <<
-                "                        TIPO DE DATO :           " << type << "                             \n" <<
-                "                        CON UN VALOR DE :        "<< valueofint <<"                         \n" <<
-                "                        CUENTA CON:               "<< count <<" REFERENCIAS                 \n" <<
-                " ################################          END          ################################    \n" <<endl;
+            cout<< "                             Valor en pos "<< position << "                                 \n" <<
+                   "                        NOMBRE DE LA VARIABLE :  " << name << "                             \n" <<
+                   "                        TIPO DE DATO :           " << type << "                             \n" <<
+                   "                        CON UN VALOR DE :        "<< 2 <<"                         \n" <<
+                   "                        CUENTA CON:               "<< count <<" REFERENCIAS                 \n" <<endl;
+
 
         }
-/**
-        for (int i = 0; i < list_show.getLen(); ++i) {
-
-            name = list_show.getNode(i).getValue().getName();
-            type = list_show.getNode(i).getValue().getType();
-            count = list_show.getNode(i).getValue().getRefCount();
-            size = list_show.getNode(i).getValue().getSize();
-            position = list_show.getNode(i).getValue().getValueAddress();
-
-            if(type == "Integer"){
-                valueofint = Memory_Management::getInstance()->searchmalloc<int>(memory_map.getNode(i).getValue().getValueAddress());
-            }else if(type == "Long"){
-                valueoflong = Memory_Management::getInstance()->searchmalloc<long>(memory_map.getNode(i).getValue().getValueAddress());
-            }else if(type == "Float"){
-                valueoffloat = Memory_Management::getInstance()->searchmalloc<float>(memory_map.getNode(i).getValue().getValueAddress());
-            }else if(type == "Double"){
-                valueofdouble = Memory_Management::getInstance()->searchmalloc<double>(memory_map.getNode(i).getValue().getValueAddress());
-            }else if(type == "Char"){
-                valueofchar = Memory_Management::getInstance()->searchmalloc<char>(memory_map.getNode(i).getValue().getValueAddress());
-            }
-
-            cout<< " ################################  SERVER MEMORY MAP    ################################ \n" <<
-                   "                                                                                         \n"
-                   "                        NOMBRE DE LA VARIABLE =  "<< endl;
-
-        }*/
-
+        cout << " ################################          END          ################################    \n" << endl;
     }
 
 };

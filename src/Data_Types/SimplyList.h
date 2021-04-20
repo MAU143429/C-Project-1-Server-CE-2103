@@ -123,7 +123,7 @@ public:
         return tmp->getValue();
     }
 
-    Node<T> getNode(int i) {
+    Node<T>* getNode(int i) {
 
         if (i >= this->len) {
             return 0;
