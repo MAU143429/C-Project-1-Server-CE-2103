@@ -62,6 +62,12 @@ public:
         T *temp = (T *)ptr;
         return *(temp+offset);
     }
+
+    template<typename T>
+    void modifymalloc(T value,int offset){
+        T *temp = (T *)ptr;
+        *(temp+offset) = value;
+    }
 };
 
 

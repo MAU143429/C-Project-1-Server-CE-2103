@@ -5,8 +5,39 @@
 #ifndef PROYECTO_1_DATOS_II_SERVER_C__SEARCH_TYPE_H
 #define PROYECTO_1_DATOS_II_SERVER_C__SEARCH_TYPE_H
 
+#include "string"
+#include "iostream"
+#include "../TypeConversion/JSON_Management.h"
+#include "../MM/Memory_Map.h"
+
+
+using namespace std;
 
 class Search_Type {
+
+public:
+
+
+    static bool Search_DataType(const string &jsonString){
+
+        string type = JSON_Management::GetJSONString("type", jsonString);
+        string name = JSON_Management::GetJSONString("name", jsonString);
+
+        /**if(){
+
+
+            return false
+        }else{
+            return false
+        }*/
+
+
+
+
+
+
+    }
+
 
 };
 
