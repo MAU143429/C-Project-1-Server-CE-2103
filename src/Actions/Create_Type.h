@@ -81,14 +81,8 @@ public:
             Memory_Map::getInstance()->append_list(createchar);
         }
 
-
-
-        // append memory map "Guarda el objeto completo en el mapa de memoria"
         return "ESTO ES FASE DE PRUEBA";
 
-
-
-        //TODO Entra objeto de tipo DataType para ser creado
     }
 
 

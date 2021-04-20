@@ -35,7 +35,6 @@ public:
     }
     template <typename T>
     static T Cast_char(const char *value){
-
         char varchar1;
         std::stringstream ss;
         ss << value;
