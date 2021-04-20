@@ -10,12 +10,11 @@ using namespace std;
 class TypeMessage {
 
 public:
-    string type;
-    string name;
-    string modifyvalue;
-    string action;
-    string value;
-    string size;
+    string type, name, modifyvalue, action, value, size, response;
+
+    const string &getResponse() const;
+
+    void setResponse(const string &response);
 
     const string &getType() const;
 

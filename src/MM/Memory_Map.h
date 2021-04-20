@@ -34,7 +34,7 @@ public:
 
     void PrintMemoryMap(SimplyList<Data_Type> simplyList){
 
-        cout << " ################################  SERVER MEMORY MAP    ################################ \n" << endl;
+        cout << " ################################  SERVER MEMORY MAP    ################################ \n";
         for (int i = 0; i < simplyList.getLen(); ++i) {
 
             string name = simplyList.getNode(i)->getValue().getName();
@@ -43,24 +43,31 @@ public:
             int size = simplyList.getNode(i)->getValue().getSize();
             int position = simplyList.getNode(i)->getValue().getValueAddress();
 
+            cout<< "                                                                                         \n" <<
+                "                             Valor en pos "<< position << "                                 \n" <<
+                "                        NOMBRE DE LA VARIABLE :  " << name << "                             \n" <<
+                "                        TIPO DE DATO :           " << type << "                             \n" <<
+                "                        CON UN VALOR DE :        "<< 2 <<"                         \n" <<
+                "                        CUENTA CON:              "<< count <<" REFERENCIAS                 \n" ;
             if(type == "Integer"){
                 int valueofint = Memory_Management::getInstance()->searchmalloc<int>(memory_map.getNode(i)->getValue().getValueAddress());
+                cout << "                        VALUE OF:                " << valueofint << endl;
             }else if(type == "Long"){
                 long valueoflong = Memory_Management::getInstance()->searchmalloc<long>(memory_map.getNode(i)->getValue().getValueAddress());
+                cout << "                        VALUE OF:                " << valueoflong << endl;
             }else if(type == "Float"){
                 float valueoffloat = Memory_Management::getInstance()->searchmalloc<float>(memory_map.getNode(i)->getValue().getValueAddress());
+                cout << "                        VALUE OF:                " << valueoffloat << endl;
             }else if(type == "Double"){
                 double valueofdouble = Memory_Management::getInstance()->searchmalloc<double>(memory_map.getNode(i)->getValue().getValueAddress());
+                cout << "                        VALUE OF:                " << valueofdouble << endl;
             }else if(type == "Char"){
                 char valueofchar = Memory_Management::getInstance()->searchmalloc<char>(memory_map.getNode(i)->getValue().getValueAddress());
+                cout << "                        VALUE OF:                " << valueofchar << endl;
             }
 
 
-            cout<< "                             Valor en pos "<< position << "                                 \n" <<
-                   "                        NOMBRE DE LA VARIABLE :  " << name << "                             \n" <<
-                   "                        TIPO DE DATO :           " << type << "                             \n" <<
-                   "                        CON UN VALOR DE :        "<< 2 <<"                         \n" <<
-                   "                        CUENTA CON:               "<< count <<" REFERENCIAS                 \n" <<endl;
+
 
 
         }
