@@ -107,6 +107,7 @@ public:
         const string& size = message->getSize();
         const string& name = message->getName();
         const string& value = message->getValue();
+        const string& modifyvalue = message->getModifyvalue();
 
 
         StringBuffer stringBuffer;
@@ -130,6 +131,10 @@ public:
 
         writer.Key("value");
         writer.String(value.c_str());
+
+        writer.Key("modifyvalue");
+        writer.String(modifyvalue.c_str());
+
 
 
         writer.EndObject();

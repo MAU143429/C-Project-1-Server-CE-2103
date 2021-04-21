@@ -6,14 +6,19 @@
 #include <arpa/inet.h>
 #include <string.h>
 #include <string>
+#include <thread>
 #include "src/TypeConversion/JSON_Management.h"
 #include "src/Convert_message/Convert_request.h"
 #include "src/MM/Memory_Management.h"
-
+#include "src/Socket/Server.h"
 
 using namespace std;
 
 int main() {
+
+
+
+
     Memory_Management::getInstance()->InitMalloc(10000);
     auto message = new TypeMessage();
     message->setName("Mau");
@@ -23,10 +28,10 @@ int main() {
     message->setSize("4");
 
     auto message1 = new TypeMessage();
-    message1->setName("Naheem");
-    message1->setAction("CREATE");
-    message1->setType("Float");
-    message1->setValue("5.345");
+    message1->setName("Mau");
+    message1->setAction("MODIFY");
+    message1->setType("Integer");
+    message1->setModifyvalue("14");
     message1->setSize("4");
 
     auto message2 = new TypeMessage();
@@ -43,6 +48,8 @@ int main() {
     Convert_request::Select_Type_Message(newsms);
     Convert_request::Select_Type_Message(newsms1);
     Convert_request::Select_Type_Message(newsms2);
+
+
 
 
 

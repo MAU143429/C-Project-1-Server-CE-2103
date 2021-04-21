@@ -9,13 +9,47 @@
 #include "iostream"
 #include "../TypeConversion/JSON_Management.h"
 #include "../MM/Memory_Map.h"
-
+#include "../Actions/Cast_to_Type.h"
+#include "../Actions/Convert_Value.h"
 
 using namespace std;
 
 class Modify_Type {
 
-    static bool Modify_Datatype(string name, string type, const char *value){
+public:
+    template<typename T>
+    static bool Modify_Datatype(const string &jsonString){
+
+        string type = JSON_Management::GetJSONString("type", jsonString);
+        string name = JSON_Management::GetJSONString("name", jsonString);
+        string newnum =JSON_Management::GetJSONString("modifyvalue", jsonString);
+
+        int varint;
+        long varlong;
+        float varfloat;
+        double vardouble;
+        char varchar;
+
+        if(type == "Integer"){
+
+            varint = Cast_to_Type::Cast_int<int>(newnum.c_str());
+            Memory_Map::getInstance()->template Modify_Value(name,type,varint);
+
+
+        }else if(type == "Long"){
+            varlong = Cast_to_Type::Cast_long<long>(newnum.c_str());
+
+        }else if(type == "Float"){
+            varfloat = Cast_to_Type::Cast_float<float>(newnum.c_str());
+
+        }else if(type == "Double"){
+            vardouble = Cast_to_Type::Cast_double<double>(newnum.c_str());
+
+        }else if(type == "Char"){
+            varchar = Cast_to_Type::Cast_char<char>(newnum.c_str());
+
+        }
+
 
 
     }

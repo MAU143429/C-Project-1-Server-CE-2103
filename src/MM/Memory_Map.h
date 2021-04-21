@@ -86,6 +86,28 @@ public:
 
     }
 
+    template<typename T>
+    void Modify_Value(string name, string type, T modvalue){
+        int address;
+        for (int i = 0; i < memory_map.getLen(); ++i) {
+
+            if(memory_map.getNode(i)->getValue().getName() == name and memory_map.getNode(i)->getValue().getType() == type){
+                address = memory_map.getNode(i)->getValue().getValueAddress();
+                Memory_Management::getInstance()->template modifymalloc(modvalue,address);
+                PrintMemoryMap(memory_map);
+                cout<< "VALOR MODIFICADO CON EXITO"<<endl;
+            } else{
+                if(memory_map.getNode(i)->getValue().getName() != name){
+                    cout<<"EL NOMBRE DE LA VARIABLE QUE SE DESEA MODIFICAR NO EXISTE."<<endl;
+                }else if(memory_map.getNode(i)->getValue().getType() != type){
+                    cout<<"EL TIPO DE VARIBLE NO COINCIDE CON NINGUNA"<<endl;
+                }
+            }
+
+        }
+
+
+    }
 };
 
 

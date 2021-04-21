@@ -18,6 +18,7 @@
 #include "../Data_Types/Double.h"
 #include "../Data_Types/Char.h"
 #include "../MM/Memory_Map.h"
+#include "Modify_Type.h"
 
 using namespace std;
 
@@ -61,27 +62,31 @@ public:
     template <typename T>
     static T Create_DataType(const string &jsonString){
 
-        string message2 = JSON_Management::GetJSONString("type", jsonString);
+        string type = JSON_Management::GetJSONString("type", jsonString);
+        string name = JSON_Management::GetJSONString("name", jsonString);
         string num = JSON_Management::GetJSONString("value", jsonString);
 
-        if(message2 == "Integer"){
+
+
+        if(type == "Integer"){
             auto createint = Integer(JSON_Management::GetJSONString("name", jsonString),num.c_str());
             Memory_Map::getInstance()->append_list(createint);
-        }else if(message2 == "Long"){
+
+        }else if(type == "Long"){
             auto createlong = Long(JSON_Management::GetJSONString("name", jsonString),num.c_str());
             Memory_Map::getInstance()->append_list(createlong);
-        }else if(message2 == "Float"){
+        }else if(type == "Float"){
             auto createfloat = Float(JSON_Management::GetJSONString("name", jsonString),num.c_str());
             Memory_Map::getInstance()->append_list(createfloat);
-        }else if(message2 == "Double"){
+        }else if(type == "Double"){
             auto createdouble = Double(JSON_Management::GetJSONString("name", jsonString),num.c_str());
             Memory_Map::getInstance()->append_list(createdouble);
-        }else if(message2 == "Char"){
+        }else if(type == "Char"){
             auto createchar = Char(JSON_Management::GetJSONString("name", jsonString),num.c_str());
             Memory_Map::getInstance()->append_list(createchar);
         }
 
-        return "ESTO ES FASE DE PRUEBA";
+        return "El tipo de dato no es correcto";
 
     }
 
