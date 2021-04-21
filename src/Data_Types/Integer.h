@@ -17,6 +17,7 @@ class Integer: public Data_Type {
 public:
     int intvalue;
 
+
     int getIntvalue() const {
         return intvalue;
     }

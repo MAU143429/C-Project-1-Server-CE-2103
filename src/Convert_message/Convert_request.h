@@ -27,8 +27,10 @@ public:
             Create_Type::Create_DataType<string>(jsonString);
         } else if (message == "MODIFY") {
             cout << "SOY UN ARCHIVO AL QUE VAN A MODIFICAR" << endl;
+            Modify_Type::Modify_Datatype<string>(jsonString);
         } else if (message == "SEARCH") {
             cout << "SOY UN ARCHIVO AL QUE VAN A BUSCAR" << endl;
+            Search_Type::Search_DataType(jsonString);
         }
     }
 };
