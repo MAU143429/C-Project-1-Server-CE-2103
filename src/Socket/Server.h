@@ -17,12 +17,12 @@
 using namespace std;
 
 class Server {
-
+private:
+    Server();
+    static Server* unique_instance;
 public:
-    
-    static int InitServer(){
-
-
+    static Server *getInstance();
+    int InitServer(){
 
         // Create a socket
         int listening = socket(AF_INET, SOCK_STREAM, 0);

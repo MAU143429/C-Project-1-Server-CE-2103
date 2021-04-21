@@ -1,12 +1,6 @@
-#include <iostream>
-#include <sys/types.h>
-#include <unistd.h>
-#include <sys/socket.h>
-#include <netdb.h>
-#include <arpa/inet.h>
-#include <string.h>
 #include <string>
 #include <thread>
+#include <pthread.h>
 #include "src/TypeConversion/JSON_Management.h"
 #include "src/Convert_message/Convert_request.h"
 #include "src/MM/Memory_Management.h"
@@ -14,11 +8,12 @@
 
 using namespace std;
 
-int main() {
+void RunServer(){
+    Server::getInstance()->InitServer();
+    cout << "Server is running" << endl;
+}
 
-
-
-
+void RunProgram(){
     Memory_Management::getInstance()->InitMalloc(10000);
     auto message = new TypeMessage();
     message->setName("Mau");
@@ -48,13 +43,14 @@ int main() {
     Convert_request::Select_Type_Message(newsms);
     Convert_request::Select_Type_Message(newsms1);
     Convert_request::Select_Type_Message(newsms2);
+}
 
+int main() {
+    thread runs (RunServer);
+    thread program (RunProgram);
 
-
-
-
-
-
+    runs.join();
+    program.join();
 
     return 0;
 }

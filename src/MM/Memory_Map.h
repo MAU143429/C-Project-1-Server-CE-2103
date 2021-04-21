@@ -15,7 +15,6 @@ using namespace std;
 class Memory_Map {
 
 private:
-private:
     Memory_Map();
     static Memory_Map* unique_instance;
 
