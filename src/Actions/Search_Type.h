@@ -17,7 +17,6 @@ class Search_Type {
 
 public:
 
-
     static bool Search_DataType(const string &jsonString){
 
         string type = JSON_Management::GetJSONString("type", jsonString);
