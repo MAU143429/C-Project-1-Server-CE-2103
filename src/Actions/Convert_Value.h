@@ -7,7 +7,7 @@
 #include "iostream"
 #include "sstream"
 #include "Cast_to_Type.h"
-#include "stdlib.h"
+#include <cstdlib>
 
 using namespace std;
 
@@ -16,7 +16,7 @@ class Convert_Value {
 public:
 
     template <typename T>
-    static T classify_type(string type,const char *value){
+    static T classify_type(const string& type,const char *value){
 
         int varint;
         float varfloat;
