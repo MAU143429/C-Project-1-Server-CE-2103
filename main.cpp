@@ -7,16 +7,32 @@
 #include "src/Socket/Server.h"
 
 using namespace std;
-
+int count = 0;
+string leido = " ";
 void RunServer(){
     cout << "Server is running" << endl;
     Server::getInstance()->InitServer();
+
 }
 
-void InitMemory(){
-    cout << "Program is running!" << endl;
 
+void InitMemory(){
+
+    cout << "Program is running!" << endl;
     Memory_Management::getInstance()->InitMalloc(10000);
+    while(true){
+        if(Server::getInstance()->client_message.size() > 1 and Server::getInstance()->client_message != leido){
+            Convert_request::Select_Type_Message(Server::getInstance()->client_message);
+            leido = Server::getInstance()->client_message;
+
+        }else{
+            Server::getInstance()->client_message.empty();
+
+        }
+    }
+
+/**
+
     auto message = new TypeMessage();
     message->setName("Mau");
     message->setAction("CREATE");
@@ -45,12 +61,14 @@ void InitMemory(){
     Convert_request::Select_Type_Message(newsms);
     Convert_request::Select_Type_Message(newsms1);
     Convert_request::Select_Type_Message(newsms2);
+*/
 
 }
 
 int main() {
     thread runs (RunServer);
     thread program (InitMemory);
+
 
     runs.join();
     program.join();

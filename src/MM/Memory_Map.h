@@ -46,7 +46,6 @@ public:
                 "                             Valor en pos "<< position << "                                 \n" <<
                 "                        NOMBRE DE LA VARIABLE :  " << name << "                             \n" <<
                 "                        TIPO DE DATO :           " << type << "                             \n" <<
-                "                        CON UN VALOR DE :        "<< 2 <<"                         \n" <<
                 "                        CUENTA CON:              "<< count <<" REFERENCIAS                 \n" ;
             if(type == "Integer"){
                 int valueofint = Memory_Management::getInstance()->searchmalloc<int>(memory_map.getNode(i)->getValue().getValueAddress());

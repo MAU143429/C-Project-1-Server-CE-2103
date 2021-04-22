@@ -7,12 +7,15 @@
 #include <iostream>
 #include <sys/types.h>
 #include <unistd.h>
+#include <pthread.h>
 #include <sys/socket.h>
 #include <netdb.h>
 #include <arpa/inet.h>
 #include <string.h>
 #include <string>
 #include <thread>
+#include "../Convert_message/Convert_request.h"
+#include "../TypeConversion/JSON_Management.h"
 
 using namespace std;
 
@@ -22,6 +25,8 @@ private:
     static Server* unique_instance;
 public:
     static Server *getInstance();
+    int clientSocket;
+    string client_message;
     int InitServer(){
         cout << "Entré al server" << endl;
         // Create a socket
@@ -47,7 +52,7 @@ public:
         sockaddr_in client;
         socklen_t clientSize = sizeof(client);
 
-        int clientSocket = accept(listening, (sockaddr*)&client, &clientSize);
+        clientSocket = accept(listening, (sockaddr*)&client, &clientSize);
 
         char host[NI_MAXHOST];      // Client's remote name
         char service[NI_MAXSERV];   // Service (i.e. port) the client is connect on
@@ -89,7 +94,10 @@ public:
                 break;
             }
 
-            cout << string(buf, 0, bytesReceived) << endl;
+
+            client_message = string(buf, 0, bytesReceived);
+            cout << client_message << endl;
+
 
             // Echo message back to client
             send(clientSocket, buf, bytesReceived + 1, 0);
@@ -100,6 +108,19 @@ public:
 
         return 0;
     }
+
+    void Send(const char *msg) {
+        int sendRes = send(clientSocket, msg, strlen(msg), 0);
+        if (sendRes == -1) {
+            std::cout << "Send message failed" << std::endl;
+        }
+    }
+
+
+    string ReadString(){
+        return client_message;
+    }
+
 };
 
 
