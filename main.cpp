@@ -9,11 +9,13 @@
 using namespace std;
 
 void RunServer(){
-    Server::getInstance()->InitServer();
     cout << "Server is running" << endl;
+    Server::getInstance()->InitServer();
 }
 
-void RunProgram(){
+void InitMemory(){
+    cout << "Program is running!" << endl;
+
     Memory_Management::getInstance()->InitMalloc(10000);
     auto message = new TypeMessage();
     message->setName("Mau");
@@ -43,11 +45,12 @@ void RunProgram(){
     Convert_request::Select_Type_Message(newsms);
     Convert_request::Select_Type_Message(newsms1);
     Convert_request::Select_Type_Message(newsms2);
+
 }
 
 int main() {
     thread runs (RunServer);
-    thread program (RunProgram);
+    thread program (InitMemory);
 
     runs.join();
     program.join();

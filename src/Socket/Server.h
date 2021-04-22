@@ -23,7 +23,7 @@ private:
 public:
     static Server *getInstance();
     int InitServer(){
-
+        cout << "Entré al server" << endl;
         // Create a socket
         int listening = socket(AF_INET, SOCK_STREAM, 0);
         if (listening == -1)
