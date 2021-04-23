@@ -154,7 +154,15 @@ public:
             writer.Key("response");
             writer.String(response->getResponse().c_str());
         } else{
-            writer.Key("name");
+            writer.Key("response");
+            writer.Null();
+        }
+
+        if (!response->getCode().empty()){
+            writer.Key("code");
+            writer.String(response->getCode().c_str());
+        } else{
+            writer.Key("code");
             writer.Null();
         }
 

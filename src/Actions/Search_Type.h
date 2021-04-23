@@ -9,6 +9,7 @@
 #include <string>
 #include "../TypeConversion/JSON_Management.h"
 #include "../MM/Memory_Map.h"
+#include "../Socket/Server.h"
 
 using namespace std;
 
@@ -16,17 +17,21 @@ class Search_Type {
 
 public:
 
-    static bool Search_DataType(const string &jsonString){
+    static void Search_DataType(const string &jsonString){
 
         string name = JSON_Management::GetJSONString("name", jsonString);
-
+        auto *response = new Response();
         if(Memory_Map::getInstance()->Search_Name(name)){
+            response->setCode("100");
+            response->setResponse("TRUE");
+            Server::getInstance()->Send(JSON_Management::NewResponseToJSON(response).c_str());
             cout<<"SI EXISTE LA VARIABLE CONSULTADA"<< endl;
-            
-            return true;
         }else{
+            response->setCode("100");
+            response->setResponse("False");
+            Server::getInstance()->Send(JSON_Management::NewResponseToJSON(response).c_str());
             cout<<"NO EXISTE LA VARIABLE CONSULTADA"<< endl;
-            return false;
+
         };
 
     }

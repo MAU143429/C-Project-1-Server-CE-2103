@@ -9,6 +9,15 @@ using namespace std;
 class Response {
 public:
     string response;
+    string code;
+
+    const string &getCode() const {
+        return code;
+    }
+
+    void setCode(const string &code) {
+        Response::code = code;
+    }
 
     const string &getResponse() const {
         return response;

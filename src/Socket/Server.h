@@ -14,7 +14,6 @@
 #include <cstring>
 #include <string>
 #include <thread>
-#include "../Convert_message/Convert_request.h"
 #include "../TypeConversion/JSON_Management.h"
 
 using namespace std;
