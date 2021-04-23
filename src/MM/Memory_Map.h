@@ -85,6 +85,18 @@ public:
     }
 
     template<typename T>
+    T Get_Object(string name, string type){
+
+        for (int i = 0; i < memory_map.getLen(); ++i) {
+            if(memory_map.getNode(i)->getValue().getName() == name){
+                return memory_map.getNode(i);
+            }
+        }
+
+
+    }
+
+    template<typename T>
     void Modify_Value(string name, string type, T modvalue){
         int address;
         for (int i = 0; i < memory_map.getLen(); ++i) {

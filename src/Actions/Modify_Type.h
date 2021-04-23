@@ -36,15 +36,19 @@ public:
 
         }else if(type == "Long"){
             varlong = Cast_to_Type::Cast_long<long>(newnum.c_str());
+            Memory_Map::getInstance()->template Modify_Value(name,type,varlong);
 
         }else if(type == "Float"){
             varfloat = Cast_to_Type::Cast_float<float>(newnum.c_str());
+            Memory_Map::getInstance()->template Modify_Value(name,type,varfloat);
 
         }else if(type == "Double"){
             vardouble = Cast_to_Type::Cast_double<double>(newnum.c_str());
+            Memory_Map::getInstance()->template Modify_Value(name,type,vardouble);
 
         }else if(type == "Char"){
             varchar = Cast_to_Type::Cast_char<char>(newnum.c_str());
+            Memory_Map::getInstance()->template Modify_Value(name,type,varchar);
 
         }
     }

@@ -18,8 +18,8 @@ void RunServer(){
 
 
 void InitMemory(){
-    string response = "VENGO DEL SERVER A DAR UN SMS";
 
+    string response = "VENGO DEL SERVER A DAR UN SMS";
     cout << "Program is running!" << endl;
     Memory_Management::getInstance()->InitMalloc(10000);
     while(true){
@@ -34,7 +34,9 @@ void InitMemory(){
         }
     }
 
-/**
+}
+
+int main() {
 
     auto message = new TypeMessage();
     message->setName("Mau");
@@ -64,17 +66,16 @@ void InitMemory(){
     Convert_request::Select_Type_Message(newsms);
     Convert_request::Select_Type_Message(newsms1);
     Convert_request::Select_Type_Message(newsms2);
-*/
 
-}
 
-int main() {
     thread runs (RunServer);
     thread program (InitMemory);
 
 
     runs.join();
     program.join();
+
+
 
     return 0;
 }
