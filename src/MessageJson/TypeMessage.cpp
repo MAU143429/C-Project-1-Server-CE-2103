@@ -59,3 +59,11 @@ const string &TypeMessage::getResponse() const {
 void TypeMessage::setResponse(const string &response) {
     TypeMessage::response = response;
 }
+
+const string &TypeMessage::getCode() const {
+    return code;
+}
+
+void TypeMessage::setCode(const string &code) {
+    TypeMessage::code = code;
+}

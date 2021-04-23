@@ -10,7 +10,7 @@ using namespace std;
 class TypeMessage {
 
 public:
-    string type, name, modifyvalue, action, value, size, response;
+    string type, name, modifyvalue, action, value, size, response, code;
 
     const string &getResponse() const;
 
@@ -39,6 +39,10 @@ public:
     const string &getSize() const;
 
     void setSize(const string &size);
+
+    const string &getCode() const;
+
+    void setCode(const string &code);
 
 };
 
