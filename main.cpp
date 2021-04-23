@@ -28,6 +28,7 @@ void InitMemory(){
             leido = Server::getInstance()->client_message;
             Server::getInstance()->Send(response.c_str());
 
+
         }else{
             Server::getInstance()->client_message.empty();
 
@@ -37,7 +38,7 @@ void InitMemory(){
 }
 
 int main() {
-
+    /**
     auto message = new TypeMessage();
     message->setName("Mau");
     message->setAction("CREATE");
@@ -65,7 +66,7 @@ int main() {
 
     Convert_request::Select_Type_Message(newsms);
     Convert_request::Select_Type_Message(newsms1);
-    Convert_request::Select_Type_Message(newsms2);
+    Convert_request::Select_Type_Message(newsms2);*/
 
 
     thread runs (RunServer);

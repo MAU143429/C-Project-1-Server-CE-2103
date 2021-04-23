@@ -74,9 +74,10 @@ public:
 
         // While loop: accept and echo message back to client
         char buf[4096];
-
+        string userInput;
         while (true)
         {
+
             memset(buf, 0, 4096);
 
             // Wait for client to send data
@@ -96,11 +97,6 @@ public:
 
             client_message = string(buf, 0, bytesReceived);
             cout << client_message << endl;
-
-
-            // Echo message back to client
-
-            send(clientSocket,client_message.c_str(), client_message.size() + 1, 0);
 
         }
 
