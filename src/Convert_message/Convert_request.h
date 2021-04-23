@@ -7,14 +7,10 @@
 
 #include "../TypeConversion/JSON_Management.h"
 #include "istream"
-#include "../Actions/Create_Type.h"
 #include "../Actions/Modify_Type.h"
+#include "../Actions/Create_Type.h"
 #include "../Actions/Search_Type.h"
-#include "../Data_Types/Integer.h"
-#include "../Data_Types/Float.h"
-#include "../Data_Types/Double.h"
-#include "../Data_Types/Char.h"
-#include "../Data_Types/Long.h"
+
 
 using namespace std;
 class Convert_request {

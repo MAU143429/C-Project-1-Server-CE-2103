@@ -5,12 +5,10 @@
 #ifndef PROYECTO_1_DATOS_II_SERVER_C__SEARCH_TYPE_H
 #define PROYECTO_1_DATOS_II_SERVER_C__SEARCH_TYPE_H
 
-#include "string"
-#include "iostream"
+
+#include <string>
 #include "../TypeConversion/JSON_Management.h"
 #include "../MM/Memory_Map.h"
-#include "../Socket/Server.h"
-
 
 using namespace std;
 
