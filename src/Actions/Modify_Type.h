@@ -31,10 +31,8 @@ public:
         char varchar;
 
         if(type == "Integer"){
-
             varint = Cast_to_Type::Cast_int<int>(newnum.c_str());
             Memory_Map::getInstance()->template Modify_Value(name,type,varint);
-
 
         }else if(type == "Long"){
             varlong = Cast_to_Type::Cast_long<long>(newnum.c_str());
@@ -49,9 +47,6 @@ public:
             varchar = Cast_to_Type::Cast_char<char>(newnum.c_str());
 
         }
-
-
-
     }
 
 };
