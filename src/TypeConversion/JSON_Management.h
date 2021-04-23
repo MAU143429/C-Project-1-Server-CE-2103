@@ -11,8 +11,11 @@
 #include "../../lib/rapidjson/document.h"
 #include "../Data_Types/Data_Type.h"
 #include "../Convert_message/TypeMessage.h"
+#include "../Data_Types/Response.h"
+
 #include <string>
 #include "iostream"
+#include "../Data_Types/RamLV.h"
 
 using namespace rapidjson;
 using namespace std;
@@ -69,7 +72,7 @@ public:
         cout << stringBuffer.GetString() << endl;
         return stringBuffer.GetString();
     }
-     static Data_Type * JSONToDataType(const string &jsonString){
+    static Data_Type * JSONToDataType(const string &jsonString){
         rapidjson::Document document;
         document.Parse<kParseDefaultFlags>(jsonString.c_str());
         auto *dataType = new Data_Type();
@@ -100,7 +103,7 @@ public:
         return dataType;
     }
 
-    string static NewMessageToJSON(TypeMessage *message){
+    static string NewMessageToJSON(TypeMessage *message){
         const string& action = message->getAction();
         const string& response = message->getResponse();
         const string& type = message->getType();
@@ -141,6 +144,69 @@ public:
         cout << stringBuffer.GetString() << endl;
         return stringBuffer.GetString();
     }
+
+    static string NewResponseToJSON(Response *response){
+        StringBuffer stringBuffer;
+        Writer<StringBuffer> writer(stringBuffer);
+        writer.StartObject();
+
+        if (!response->getResponse().empty()){
+            writer.Key("response");
+            writer.String(response->getResponse().c_str());
+        } else{
+            writer.Key("name");
+            writer.Null();
+        }
+
+
+
+        writer.EndObject();
+        cout << stringBuffer.GetString() << endl;
+        return stringBuffer.GetString();
+    }
+
+    static string NewRamLVToJSON(RamLV *ramobject){
+        StringBuffer stringBuffer;
+        Writer<StringBuffer> writer(stringBuffer);
+        writer.StartObject();
+
+        if (!ramobject->getMemoryAddr().empty()){
+            writer.Key("memory_address");
+            writer.String(ramobject->getMemoryAddr().c_str());
+        } else{
+            writer.Key("memory_address");
+            writer.Null();
+        }
+
+        if (!ramobject->getValue().empty()){
+            writer.Key("value");
+            writer.String(ramobject->getValue().c_str());
+        } else{
+            writer.Key("value");
+            writer.Null();
+        }
+
+        if (!ramobject->getName().empty()){
+            writer.Key("name");
+            writer.String(ramobject->getName().c_str());
+        } else{
+            writer.Key("name");
+            writer.Null();
+        }
+
+        if (!ramobject->getRefCounter().empty()){
+            writer.Key("reference_counter");
+            writer.String(ramobject->getRefCounter().c_str());
+        } else{
+            writer.Key("reference_counter");
+            writer.Null();
+        }
+
+        writer.EndObject();
+        cout << stringBuffer.GetString() << endl;
+        return stringBuffer.GetString();
+    }
+
     string static GetJSONString(string key, const string &jsonString){
         rapidjson::Document document;
         document.Parse<kParseDefaultFlags>(jsonString.c_str());

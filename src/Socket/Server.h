@@ -11,7 +11,7 @@
 #include <sys/socket.h>
 #include <netdb.h>
 #include <arpa/inet.h>
-#include <string.h>
+#include <cstring>
 #include <string>
 #include <thread>
 #include "../Convert_message/Convert_request.h"
