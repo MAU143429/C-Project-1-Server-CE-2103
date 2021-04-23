@@ -28,7 +28,6 @@ public:
     int clientSocket;
     string client_message;
     int InitServer(){
-        cout << "Entré al server" << endl;
         // Create a socket
         int listening = socket(AF_INET, SOCK_STREAM, 0);
         if (listening == -1)
@@ -100,7 +99,9 @@ public:
 
 
             // Echo message back to client
-            send(clientSocket, buf, bytesReceived + 1, 0);
+
+            send(clientSocket,client_message.c_str(), client_message.size() + 1, 0);
+
         }
 
         // Close the socket

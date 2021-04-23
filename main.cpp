@@ -9,6 +9,7 @@
 using namespace std;
 int count = 0;
 string leido = " ";
+
 void RunServer(){
     cout << "Server is running" << endl;
     Server::getInstance()->InitServer();
@@ -17,6 +18,7 @@ void RunServer(){
 
 
 void InitMemory(){
+    string response = "VENGO DEL SERVER A DAR UN SMS";
 
     cout << "Program is running!" << endl;
     Memory_Management::getInstance()->InitMalloc(10000);
@@ -24,6 +26,7 @@ void InitMemory(){
         if(Server::getInstance()->client_message.size() > 1 and Server::getInstance()->client_message != leido){
             Convert_request::Select_Type_Message(Server::getInstance()->client_message);
             leido = Server::getInstance()->client_message;
+            Server::getInstance()->Send(response.c_str());
 
         }else{
             Server::getInstance()->client_message.empty();
