@@ -84,6 +84,18 @@ public:
 
     }
 
+    bool Search_Name(string name){
+
+        for (int i = 0; i < memory_map.getLen(); ++i) {
+
+            if(memory_map.getNode(i)->getValue().getName() == name){
+                return true;
+            }
+        }
+        return false;
+
+    }
+
     template<typename T>
     T Get_Object(string name, string type){
 
