@@ -7,8 +7,8 @@
 
 #include "string"
 #include "iostream"
-#include "../TypeConversion/JSON_Management.h"
-#include "../MM/Memory_Map.h"
+#include "../MessageJson/JSON_Management.h"
+#include "../Memory Management/Memory_Map.h"
 #include "../Actions/Cast_to_Type.h"
 #include "../Actions/Convert_Value.h"
 

@@ -11,13 +11,13 @@
 #include "stdlib.h"
 #include "../Data_Types/Data_Type.h"
 #include "../Data_Types/SimplyList.h"
-#include "../TypeConversion/JSON_Management.h"
+#include "../MessageJson/JSON_Management.h"
 #include "../Data_Types/Integer.h"
 #include "../Data_Types/Long.h"
 #include "../Data_Types/Float.h"
 #include "../Data_Types/Double.h"
 #include "../Data_Types/Char.h"
-#include "../MM/Memory_Map.h"
+#include "../Memory Management/Memory_Map.h"
 #include "Modify_Type.h"
 
 using namespace std;

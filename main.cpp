@@ -1,9 +1,9 @@
 #include <string>
 #include <thread>
 #include <pthread.h>
-#include "src/TypeConversion/JSON_Management.h"
-#include "src/Convert_message/Convert_request.h"
-#include "src/MM/Memory_Management.h"
+#include "src/MessageJson/JSON_Management.h"
+#include "src/MessageJson/Convert_request.h"
+#include "src/Memory Management/Memory_Management.h"
 #include "src/Socket/Server.h"
 
 using namespace std;

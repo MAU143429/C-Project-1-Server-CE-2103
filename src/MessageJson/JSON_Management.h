@@ -10,12 +10,12 @@
 #include "../../lib/rapidjson/writer.h"
 #include "../../lib/rapidjson/document.h"
 #include "../Data_Types/Data_Type.h"
-#include "../Convert_message/TypeMessage.h"
-#include "../Data_Types/Response.h"
+#include "../MessageJson//TypeMessage.h"
+#include "Response.h"
 
 #include <string>
 #include "iostream"
-#include "../Data_Types/RamLV.h"
+#include "RamLV.h"
 
 using namespace rapidjson;
 using namespace std;

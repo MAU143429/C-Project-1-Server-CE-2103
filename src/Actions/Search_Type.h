@@ -7,8 +7,8 @@
 
 
 #include <string>
-#include "../TypeConversion/JSON_Management.h"
-#include "../MM/Memory_Map.h"
+#include "../MessageJson/JSON_Management.h"
+#include "../Memory Management/Memory_Map.h"
 #include "../Socket/Server.h"
 
 using namespace std;

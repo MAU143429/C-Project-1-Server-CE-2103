@@ -5,7 +5,7 @@
 #ifndef PROYECTO_1_DATOS_II_SERVER_C__CONVERT_REQUEST_H
 #define PROYECTO_1_DATOS_II_SERVER_C__CONVERT_REQUEST_H
 
-#include "../TypeConversion/JSON_Management.h"
+#include "JSON_Management.h"
 #include "istream"
 #include "../Actions/Modify_Type.h"
 #include "../Actions/Create_Type.h"
