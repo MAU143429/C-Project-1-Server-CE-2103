@@ -103,14 +103,15 @@ public:
         return dataType;
     }
 
-    static string NewMessageToJSON(TypeMessage *message){
-        const string& action = message->getAction();
-        const string& response = message->getResponse();
-        const string& type = message->getType();
-        const string& size = message->getSize();
-        const string& name = message->getName();
-        const string& value = message->getValue();
-        const string& modifyvalue = message->getModifyvalue();
+    static string NewMessageToJSON(TypeMessage *message) {
+        const string &action = message->getAction();
+        const string &response = message->getResponse();
+        const string &type = message->getType();
+        const string &size = message->getSize();
+        const string &name = message->getName();
+        const string &value = message->getValue();
+        const string &modifyvalue = message->getModifyvalue();
+        const string &code = message->getCode();
 
 
         StringBuffer stringBuffer;
@@ -137,6 +138,9 @@ public:
 
         writer.Key("modifyvalue");
         writer.String(modifyvalue.c_str());
+
+        writer.Key("code");
+        writer.String(code.c_str());
 
 
 
