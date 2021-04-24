@@ -5,6 +5,7 @@
 #ifndef PROYECTO_1_DATOS_II_SERVER_C__MEMORY_MAP_H
 #define PROYECTO_1_DATOS_II_SERVER_C__MEMORY_MAP_H
 #include "string"
+#include <mutex>
 #include "iostream"
 #include "../Data_Types/SimplyList.h"
 #include "../Data_Types/Data_Type.h"
@@ -13,15 +14,19 @@
 using namespace std;
 
 class Memory_Map {
-
-private:
+protected:
     Memory_Map();
+    ~Memory_Map();
+private:
     static Memory_Map* unique_instance;
+    static mutex mutex_;
 
 public:
-    static Memory_Map *getInstance();
-    //template<typename T>
     SimplyList<Data_Type> memory_map;
+    static Memory_Map *getInstance();
+
+    Memory_Map(Memory_Map &other) = delete;
+    void operator=(const Memory_Map &) = delete;
 
     //template<typename T>
     void append_list(Data_Type element){
