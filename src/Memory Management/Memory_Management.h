@@ -5,6 +5,7 @@
 #ifndef PROYECTO_1_DATOS_II_SERVER_C__MEMORY_MANAGEMENT_H
 #define PROYECTO_1_DATOS_II_SERVER_C__MEMORY_MANAGEMENT_H
 
+#include <mutex>
 #include "iostream"
 #include "../Data_Types/SimplyList.h"
 #include "../Data_Types/Recycling_malloc.h"
@@ -17,20 +18,20 @@ using namespace std;
 
 
 class Memory_Management{
-
-
-private:
+protected:
     Memory_Management();
+    ~Memory_Management();
+private:
     static Memory_Management* unique_instance;
-
+    static mutex mutex_;
 public:
     void *ptr;
     int offset;
     static Memory_Management *getInstance();
     Recycling_malloc<int> Recycling_addr;
 
-
-
+    Memory_Management(Memory_Management &other) = delete;
+    void operator=(const Memory_Management &) = delete;
 
     void InitMalloc(size_t size){
         ptr = malloc(size);
