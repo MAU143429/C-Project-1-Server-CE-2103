@@ -15,6 +15,7 @@
 #include <string>
 #include <thread>
 #include "../MessageJson/JSON_Management.h"
+#include "../MessageJson/Convert_request.h"
 
 using namespace std;
 
@@ -26,6 +27,8 @@ public:
     static Server *getInstance();
     int clientSocket;
     string client_message;
+
+
     int InitServer(){
         // Create a socket
         int listening = socket(AF_INET, SOCK_STREAM, 0);
@@ -93,9 +96,13 @@ public:
                 break;
             }
 
-            client_message = string(buf, 0, bytesReceived);
-            cout << client_message << endl;
 
+            client_message = string(buf, 0, bytesReceived);
+            if(!client_message.empty()){
+                const string &response = Convert_request::Select_Type_Message(client_message);
+                Send(response.c_str());
+
+            }
         }
 
         // Close the socket

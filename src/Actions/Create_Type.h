@@ -19,7 +19,7 @@
 #include "../Data_Types/Char.h"
 #include "../Memory Management/Memory_Map.h"
 #include "Modify_Type.h"
-#include "../Socket/Server.h"
+
 
 using namespace std;
 
@@ -67,41 +67,36 @@ public:
         string name = JSON_Management::GetJSONString("name", jsonString);
         string num = JSON_Management::GetJSONString("value", jsonString);
 
-        cout<<"VOY A ENTRAR A LA CONDICION DEL NOMBRE"<<endl;
+
         if(!Memory_Map::getInstance()->Search_Name(name)){
-            auto created = new Response();
-            created->setResponse("SE HA CREADO LA VARIABLE CON EXITO!");
-            created->setCode("102");
 
-
-            cout<<"ENTRE PORQUE SOY DIFERENTE"<<endl;
             if(type == "Integer"){
                 auto createint = Integer(JSON_Management::GetJSONString("name", jsonString),num.c_str());
                 Memory_Map::getInstance()->append_list(createint);
-                C
             }else if(type == "Long"){
                 auto createlong = Long(JSON_Management::GetJSONString("name", jsonString),num.c_str());
                 Memory_Map::getInstance()->append_list(createlong);
-                Server::getInstance()->Send(JSON_Management::NewResponseToJSON(created).c_str());
+
             }else if(type == "Float"){
                 auto createfloat = Float(JSON_Management::GetJSONString("name", jsonString),num.c_str());
                 Memory_Map::getInstance()->append_list(createfloat);
-                Server::getInstance()->Send(JSON_Management::NewResponseToJSON(created).c_str());
+
+
             }else if(type == "Double"){
                 auto createdouble = Double(JSON_Management::GetJSONString("name", jsonString),num.c_str());
                 Memory_Map::getInstance()->append_list(createdouble);
-                Server::getInstance()->Send(JSON_Management::NewResponseToJSON(created).c_str());
+
             }else if(type == "Char"){
                 auto createchar = Char(JSON_Management::GetJSONString("name", jsonString),num.c_str());
                 Memory_Map::getInstance()->append_list(createchar);
-                Server::getInstance()->Send(JSON_Management::NewResponseToJSON(created).c_str());
+
 
             }
         }else{
-            auto error = new Response();
-            error->setResponse("ERROR:EL NOMBRE DE LA VARIABLE QUE DESEAS CREAR YA ESTA EN USO");
-            error->setCode("101");
-            Server::getInstance()->Send(JSON_Management::NewResponseToJSON(error).c_str());
+            //TODO CREAR EL RESPONSE DE QUE LA VARIABLE YA ESTA EN USO
+            cout <<"ERROR:EL NOMBRE DE LA VARIABLE QUE DESEAS CREAR YA ESTA EN USO"<<endl;
+
+
         }
 
     }
