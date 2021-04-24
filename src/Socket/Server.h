@@ -14,27 +14,19 @@
 #include <cstring>
 #include <string>
 #include <thread>
-#include <mutex>
 #include "../MessageJson/JSON_Management.h"
+#include "../MessageJson/Convert_request.h"
 
 using namespace std;
 
 class Server {
-protected:
-    Server();
-    ~Server();
-
 private:
+    Server();
     static Server* unique_instance;
-    static mutex mutex_;
 public:
+    static Server *getInstance();
     int clientSocket;
     string client_message;
-
-    Server(Server &other) = delete;
-    void operator=(const Server &) = delete;
-    static Server *getInstance();
-
 
 
     int InitServer(){
@@ -104,9 +96,13 @@ public:
                 break;
             }
 
-            client_message = string(buf, 0, bytesReceived);
-            cout << client_message << endl;
 
+            client_message = string(buf, 0, bytesReceived);
+            if(!client_message.empty()){
+                const string &response = Convert_request::Select_Type_Message(client_message);
+                Send(response.c_str());
+
+            }
         }
 
         // Close the socket
