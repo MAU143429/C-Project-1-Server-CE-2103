@@ -3,7 +3,7 @@
 //
 
 #include "Memory_Map.h"
-#include "iostream"
+
 using namespace std;
 
 Memory_Map* Memory_Map::unique_instance{nullptr};
