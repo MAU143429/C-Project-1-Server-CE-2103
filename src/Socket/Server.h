@@ -104,7 +104,6 @@ public:
                 break;
             }
 
-
             client_message = string(buf, 0, bytesReceived);
             cout << client_message << endl;
 

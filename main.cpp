@@ -11,15 +11,13 @@ int count = 0;
 string leido = " ";
 
 void RunServer(){
+
     cout << "Server is running" << endl;
     Server::getInstance()->InitServer();
 
 }
 
-
 void InitMemory(){
-
-
     cout << "Program is running!" << endl;
     Memory_Management::getInstance()->InitMalloc(10000);
     while(true){
