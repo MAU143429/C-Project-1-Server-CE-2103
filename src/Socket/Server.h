@@ -20,13 +20,20 @@
 using namespace std;
 
 class Server {
-private:
+
+protected:
     Server();
+    ~Server() {}
+private:
     static Server* unique_instance;
+    static mutex mutex_;
 public:
-    static Server *getInstance();
     int clientSocket;
     string client_message;
+    static Server* getInstance();
+    void operator=(const Server &) = delete;
+    Server(Server &other) = delete;
+
 
 
     int InitServer(){
