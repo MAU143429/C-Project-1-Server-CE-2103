@@ -85,7 +85,10 @@ public:
     }
 
     bool Search_Name(string name){
-
+        cout<<memory_map.getLen()<<endl;
+        if(memory_map.getLen() == 0){
+            return false;
+        }
         for (int i = 0; i < memory_map.getLen(); ++i) {
 
             if(memory_map.getNode(i)->getValue().getName() == name){
