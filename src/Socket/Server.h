@@ -14,18 +14,29 @@
 #include <cstring>
 #include <string>
 #include <thread>
+#include <mutex>
 #include "../MessageJson/JSON_Management.h"
 
 using namespace std;
 
 class Server {
-private:
+protected:
     Server();
+    ~Server();
+
+private:
     static Server* unique_instance;
+    static mutex mutex_;
 public:
-    static Server *getInstance();
     int clientSocket;
     string client_message;
+
+    Server(Server &other) = delete;
+    void operator=(const Server &) = delete;
+    static Server *getInstance();
+
+
+
     int InitServer(){
         // Create a socket
         int listening = socket(AF_INET, SOCK_STREAM, 0);

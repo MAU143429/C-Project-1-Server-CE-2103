@@ -3,10 +3,14 @@
 //
 
 #include "Server.h"
-Server* Server::unique_instance = NULL;
+Server* Server::unique_instance{nullptr};
+mutex Server::mutex_;
+
 Server::Server() {}
+Server::~Server() {}
 
 Server *Server::getInstance() {
-    if (unique_instance == NULL){unique_instance = new Server();}
+    lock_guard<std::mutex> lock(mutex_);
+    if (unique_instance == nullptr){unique_instance = new Server();}
     return unique_instance;
 }
