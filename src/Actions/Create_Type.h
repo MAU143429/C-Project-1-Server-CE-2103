@@ -67,36 +67,39 @@ public:
         string name = JSON_Management::GetJSONString("name", jsonString);
         string num = JSON_Management::GetJSONString("value", jsonString);
 
-
+        cout << "Antes del IF" << endl;
         if(!Memory_Map::getInstance()->Search_Name(name)){
-
+            cout << "Dentro del IF" << endl;
             if(type == "Integer"){
                 auto createint = Integer(JSON_Management::GetJSONString("name", jsonString),num.c_str());
                 Memory_Map::getInstance()->append_list(createint);
+                return "";
             }else if(type == "Long"){
                 auto createlong = Long(JSON_Management::GetJSONString("name", jsonString),num.c_str());
                 Memory_Map::getInstance()->append_list(createlong);
-
+                return "";
             }else if(type == "Float"){
                 auto createfloat = Float(JSON_Management::GetJSONString("name", jsonString),num.c_str());
                 Memory_Map::getInstance()->append_list(createfloat);
-
+                return "";
 
             }else if(type == "Double"){
                 auto createdouble = Double(JSON_Management::GetJSONString("name", jsonString),num.c_str());
                 Memory_Map::getInstance()->append_list(createdouble);
-
+                return "";
             }else if(type == "Char"){
                 auto createchar = Char(JSON_Management::GetJSONString("name", jsonString),num.c_str());
                 Memory_Map::getInstance()->append_list(createchar);
-
+                return "";
 
             }
         }else{
             //TODO CREAR EL RESPONSE DE QUE LA VARIABLE YA ESTA EN USO CODIGO 101
             cout <<"ERROR:EL NOMBRE DE LA VARIABLE QUE DESEAS CREAR YA ESTA EN USO"<<endl;
             response->setCode("101");
+            cout << "Número 1" << endl;
             response->setResponse("ERROR:EL NOMBRE DE LA VARIABLE QUE DESEAS CREAR YA ESTA EN USO");
+            cout << "Número 2" << endl;
             return JSON_Management::NewResponseToJSON(response);
 
         }
