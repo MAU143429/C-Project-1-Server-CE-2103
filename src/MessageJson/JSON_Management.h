@@ -22,6 +22,11 @@ using namespace std;
 
 class JSON_Management{
 public:
+    /**
+     * @brief Casts a Data_Type object into a JSON.
+     * @param dataType
+     * @return the Data_Type object casted into a JSON.
+     */
     static string NewDatatypeToJSON(Data_Type *dataType){
 
         StringBuffer stringBuffer;
@@ -72,6 +77,11 @@ public:
         cout << stringBuffer.GetString() << endl;
         return stringBuffer.GetString();
     }
+    /**
+     * @brief Casts a JSON string into a Data_Type object.
+     * @param jsonString containing the Data_Type JSON.
+     * @return the new Data_Type object casted from JSON.
+     */
     static Data_Type * JSONToDataType(const string &jsonString){
         rapidjson::Document document;
         document.Parse<kParseDefaultFlags>(jsonString.c_str());
@@ -103,6 +113,11 @@ public:
         return dataType;
     }
 
+    /**
+     * @brief
+     * @param message
+     * @return
+     */
     static string NewMessageToJSON(TypeMessage *message) {
         const string &action = message->getAction();
         const string &response = message->getResponse();
@@ -148,7 +163,11 @@ public:
         cout << stringBuffer.GetString() << endl;
         return stringBuffer.GetString();
     }
-
+    /**
+     * @brief Casts Response object to a new JSON.
+     * @param response
+     * @return the new JSON casted from Response object.
+     */
     static string NewResponseToJSON(Response *response){
         StringBuffer stringBuffer;
         Writer<StringBuffer> writer(stringBuffer);
@@ -176,7 +195,11 @@ public:
         cout << stringBuffer.GetString() << endl;
         return stringBuffer.GetString();
     }
-
+    /**
+     * 
+     * @param ramobject
+     * @return
+     */
     static string NewRamLVToJSON(RamLV *ramobject){
         StringBuffer stringBuffer;
         Writer<StringBuffer> writer(stringBuffer);
