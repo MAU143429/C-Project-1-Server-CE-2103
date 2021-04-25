@@ -16,11 +16,7 @@ using namespace std;
 class Convert_request {
 
 public:
-    /**
-     * @brief Receives a key and identifies it between a create, modify or search type of action.
-     * @param jsonString the json containing the message sent from the client.
-     * @return a string containing the response that needs to be sent to the client.
-     */
+
     static string Select_Type_Message(const string &jsonString) {
         string verify;
         string message = JSON_Management::GetJSONString("action", jsonString);

@@ -18,12 +18,6 @@ using namespace std;
 class Modify_Type {
 
 public:
-    /**
-     * @brief Method that searches for a created data in memory map and modifies it.
-     * @tparam T
-     * @param jsonString
-     * @return a boolean
-     */
     template<typename T>
     static bool Modify_Datatype(const string &jsonString){
 

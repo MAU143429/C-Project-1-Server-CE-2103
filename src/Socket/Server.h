@@ -31,22 +31,11 @@ public:
     int clientSocket;
     string client_message;
     static Server* getInstance();
-    /**
-     * @brief Method that doesn't let the server instance be cloneable.
-     */
     void operator=(const Server &) = delete;
-
-    /**
-     * @brief Method that doesn't let the server be assignable.
-     * @param other
-     */
     Server(Server &other) = delete;
 
 
-    /**
-     * @brief Initializes the server.
-     * @return and integer based on the if the listening socket couldn't be created.
-     */
+
     int InitServer(){
         // Create a socket
         int listening = socket(AF_INET, SOCK_STREAM, 0);
@@ -128,10 +117,7 @@ public:
 
         return 0;
     }
-    /**
-     * @brief Sends a message to the client.
-     * @param msg const char pointer containing the message.
-     */
+
     void Send(const char *msg) {
         int sendRes = send(clientSocket, msg, strlen(msg), 0);
         if (sendRes == -1) {
@@ -139,10 +125,7 @@ public:
         }
     }
 
-    /**
-     * Returns the message for the client.
-     * @return string for the message of the client.
-     */
+
     string ReadString(){
         return client_message;
     }

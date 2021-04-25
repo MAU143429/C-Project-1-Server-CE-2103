@@ -16,10 +16,7 @@ using namespace std;
 class Search_Type {
 
 public:
-    /**
-     * @brief Searches for the datatype on the memory map.
-     * @param jsonString
-     */
+
     static void Search_DataType(const string &jsonString){
 
         string name = JSON_Management::GetJSONString("name", jsonString);

@@ -21,11 +21,7 @@ public:
     void setDoublevalue(double doublevalue) {
         Double::doublevalue = doublevalue;
     }
-    /**
-     * @brief Constructor for the Double class.
-     * @param name
-     * @param value
-     */
+
     Double(string name, const char *value){
         this->name = name;
         this->doublevalue = Convert_Value::classify_type<double>("Double",value);

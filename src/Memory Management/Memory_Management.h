@@ -30,30 +30,15 @@ public:
     int offset;
     static Memory_Management *getInstance();
     Recycling_malloc<int> Recycling_addr;
-    /**
-     * @brief Method that doesn't let the Memory_Management instance be assignable.
-     * @param other
-     */
+
     Memory_Management(Memory_Management &other) = delete;
-    /**
-     * Method that doesn't let the Memory_Management instance be cloneable.
-     */
     void operator=(const Memory_Management &) = delete;
 
-    /**
-     * @brieg Initializes the malloc
-     * @param size the size for the memory block that gets created.
-     */
     void InitMalloc(size_t size){
         ptr = malloc(size);
         offset = 1;
     }
-    /**
-     * @brief Appends the element to the malloc created.
-     * @tparam T
-     * @param element
-     * @return the memory address of the temp variable plus the offset.
-     */
+
     template<typename T>
     int appendElem(T element){
         int addr;
@@ -73,23 +58,13 @@ public:
             return addr;
         }
     }
-    /**
-     *
-     * @tparam T
-     * @param offset
-     * @return
-     */
+
     template<typename T>
     T searchmalloc(int offset){
         T *temp = (T *)ptr;
         return *(temp+offset);
     }
-    /**
-     * @brief Modifies a value contained in the malloc using the offset to access it.
-     * @tparam T
-     * @param value
-     * @param offset
-     */
+
     template<typename T>
     string Get_mallocvalue(int offset){
         T *temp = (T *)ptr;
@@ -104,12 +79,6 @@ public:
         T *temp = (T *)ptr;
         *(temp+offset) = value;
     }
-    /**
-     * @brief Getter for the memory address using the offset
-     * @tparam T
-     * @param offset
-     * @return the memory address
-     */
     template<typename T>
     string getMemory_Address(int offset){
         T *temp = (T *)ptr;

@@ -22,11 +22,7 @@ public:
     void setFloatvalue(float floatvalue) {
         Float::floatvalue = floatvalue;
     }
-    /**
-     * @brief constructor for the float class.
-     * @param name
-     * @param value
-     */
+
     Float(string name, const char *value){
         this->name = name;
         this->floatvalue = Convert_Value::classify_type<float >("Float",value);
