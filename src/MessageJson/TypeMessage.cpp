@@ -67,3 +67,19 @@ const string &TypeMessage::getCode() const {
 void TypeMessage::setCode(const string &code) {
     TypeMessage::code = code;
 }
+
+const string &TypeMessage::getMemoryAddress() const {
+    return memory_address;
+}
+
+void TypeMessage::setMemoryAddress(const string &memoryAddress) {
+    memory_address = memoryAddress;
+}
+
+const string &TypeMessage::getRefCount() const {
+    return ref_count;
+}
+
+void TypeMessage::setRefCount(const string &refCount) {
+    ref_count = refCount;
+}

@@ -20,9 +20,12 @@ class Modify_Type {
 public:
     template<typename T>
     static bool Modify_Datatype(const string &jsonString){
-        string type = JSON_Management::GetJSONString("type", jsonString);
+
         string name = JSON_Management::GetJSONString("name", jsonString);
         string newnum =JSON_Management::GetJSONString("modifyvalue", jsonString);
+        string type = Memory_Map::getInstance()->Get_Type(name);
+
+
 
         int varint;
         long varlong;

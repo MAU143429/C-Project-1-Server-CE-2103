@@ -70,6 +70,16 @@ public:
         T *temp = (T *)ptr;
         *(temp+offset) = value;
     }
+    template<typename T>
+    string getMemory_Address(int offset){
+        T *temp = (T *)ptr;
+        std::ostringstream newaddress;
+        newaddress << ((temp+offset));
+        const char *address = newaddress.str().c_str();
+        return address;
+
+    }
+
 };
 
 
