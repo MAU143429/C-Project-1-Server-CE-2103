@@ -123,6 +123,32 @@ public:
         }
     }
 
+    string Get_MemoryAddress(string name){
+
+        for (int i = 0; i < memory_map.getLen(); ++i) {
+            if(memory_map.getNode(i)->getValue().getName() == name){
+                return memory_map.getNode(i)->getValue().getMemoryAdrr();
+            }
+        }
+    }
+
+    int Get_RefCount(string name){
+
+        for (int i = 0; i < memory_map.getLen(); ++i) {
+            if(memory_map.getNode(i)->getValue().getName() == name){
+                return memory_map.getNode(i)->getValue().getRefCount();
+            }
+        }
+    }
+    int Get_Offset(string name){
+
+        for (int i = 0; i < memory_map.getLen(); ++i) {
+            if(memory_map.getNode(i)->getValue().getName() == name){
+                return memory_map.getNode(i)->getValue().getValueAddress();
+            }
+        }
+    }
+
 
     template<typename T>
     void Modify_Value(string name, string type, T modvalue){

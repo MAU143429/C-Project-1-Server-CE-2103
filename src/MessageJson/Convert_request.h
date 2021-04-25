@@ -27,8 +27,12 @@ public:
                 string varname = JSON_Management::GetJSONString("name", jsonString);
 
 
-                response->setCode("102");
+                response->setCode("100");
                 response->setResponse("VARIABLE CREADA CON EXITO");
+                response->setName(JSON_Management::GetJSONString("name",jsonString));
+                response->setValue(JSON_Management::GetJSONString("value",jsonString));
+                response->setMemoryAddress(Memory_Map::getInstance()->Get_MemoryAddress(JSON_Management::GetJSONString("name",jsonString)));
+                response->setRefCount(Memory_Map::getInstance()->Get_RefCount(JSON_Management::GetJSONString("name",jsonString)));
                 return JSON_Management::NewResponseToJSON(response);
             }else{
                 return verify;
@@ -38,8 +42,14 @@ public:
         } else if (message == "MODIFY") {
             cout << "SOY UN ARCHIVO AL QUE VAN A MODIFICAR" << endl;
             Modify_Type::Modify_Datatype<string>(jsonString);
-            response->setCode("102");
+            response->setCode("100");
             response->setResponse("VARIABLE MODIFICADA CON EXITO");
+            response->setName(JSON_Management::GetJSONString("name",jsonString));
+           // TODO ARREGLAR EL VALOR DE SETVALUE
+            response->setValue(Memory_Management::getInstance()->Get_mallocvalue<string>(Memory_Map::getInstance()->Get_Offset(JSON_Management::GetJSONString("name",jsonString))));
+            response->setMemoryAddress(Memory_Map::getInstance()->Get_MemoryAddress(JSON_Management::GetJSONString("name",jsonString)));
+            response->setRefCount(Memory_Map::getInstance()->Get_RefCount(JSON_Management::GetJSONString("name",jsonString)));
+
             return JSON_Management::NewResponseToJSON(response);
 
         } else if (message == "SEARCH") {

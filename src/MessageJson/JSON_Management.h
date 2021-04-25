@@ -175,8 +175,35 @@ public:
             writer.Key("code");
             writer.Null();
         }
-
-
+        if (!response->getName().empty()){
+            writer.Key("name");
+            writer.String(response->getName().c_str());
+        } else{
+            writer.Key("name");
+            writer.Null();
+        }
+        if (!response->getValue().empty()){
+            writer.Key("value");
+            writer.String(response->getValue().c_str());
+        } else{
+            writer.Key("value");
+            writer.Null();
+        }
+        if (!response->getMemoryAddress().empty()){
+            writer.Key("mem_address");
+            writer.String(response->getMemoryAddress().c_str());
+        } else{
+            writer.Key("mem_address");
+            writer.Null();
+        }
+        if (response->getRefCount() != 0){
+            string s = to_string(response->getRefCount());
+            writer.Key("ref_count");
+            writer.String(s.c_str());
+        } else{
+            writer.Key("ref_count");
+            writer.Null();
+        }
 
         writer.EndObject();
         cout << stringBuffer.GetString() << endl;

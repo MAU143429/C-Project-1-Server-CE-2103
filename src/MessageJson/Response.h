@@ -10,6 +10,42 @@ class Response {
 public:
     string response;
     string code;
+    string name;
+    string value;
+    string memory_address;
+    int ref_count;
+
+    int getRefCount() const {
+        return ref_count;
+    }
+
+    void setRefCount(int refCount) {
+        ref_count = refCount;
+    }
+
+    const string &getName() const {
+        return name;
+    }
+
+    void setName(const string &name) {
+        Response::name = name;
+    }
+
+    const string &getValue() const {
+        return value;
+    }
+
+    void setValue(const string &value) {
+        Response::value = value;
+    }
+
+    const string &getMemoryAddress() const {
+        return memory_address;
+    }
+
+    void setMemoryAddress(const string &memoryAddress) {
+        memory_address = memoryAddress;
+    }
 
     const string &getCode() const {
         return code;

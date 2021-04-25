@@ -66,6 +66,15 @@ public:
     }
 
     template<typename T>
+    string Get_mallocvalue(int offset){
+        T *temp = (T *)ptr;
+        std::ostringstream newvalue;
+        newvalue << (*(temp+offset));
+        const char *value = newvalue.str().c_str();
+        return value;
+    }
+
+    template<typename T>
     void modifymalloc(T value,int offset){
         T *temp = (T *)ptr;
         *(temp+offset) = value;
@@ -77,7 +86,6 @@ public:
         newaddress << ((temp+offset));
         const char *address = newaddress.str().c_str();
         return address;
-
     }
 
 };
