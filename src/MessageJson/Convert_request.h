@@ -35,7 +35,7 @@ public:
         } else if (message == "SEARCH") {
             cout << "SOY UN ARCHIVO AL QUE VAN A BUSCAR" << endl;
             Search_Type::Search_DataType(jsonString);
-            response->setCode("102");
+            response->setCode("101");
             response->setResponse("VARIABLE BUSCADA CON EXITO");
             return JSON_Management::NewResponseToJSON(response);
         }

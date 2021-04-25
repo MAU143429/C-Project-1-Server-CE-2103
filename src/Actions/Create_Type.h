@@ -62,7 +62,7 @@ public:
     }
     template <typename T>
     static T Create_DataType(const string &jsonString){
-
+        auto response = new Response();
         string type = JSON_Management::GetJSONString("type", jsonString);
         string name = JSON_Management::GetJSONString("name", jsonString);
         string num = JSON_Management::GetJSONString("value", jsonString);
@@ -93,9 +93,11 @@ public:
 
             }
         }else{
-            //TODO CREAR EL RESPONSE DE QUE LA VARIABLE YA ESTA EN USO
+            //TODO CREAR EL RESPONSE DE QUE LA VARIABLE YA ESTA EN USO CODIGO 101
             cout <<"ERROR:EL NOMBRE DE LA VARIABLE QUE DESEAS CREAR YA ESTA EN USO"<<endl;
-
+            response->setCode("101");
+            response->setResponse("ERROR:EL NOMBRE DE LA VARIABLE QUE DESEAS CREAR YA ESTA EN USO");
+            return JSON_Management::NewResponseToJSON(response);
 
         }
 
