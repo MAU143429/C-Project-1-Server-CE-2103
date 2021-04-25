@@ -23,7 +23,7 @@ class Server {
 
 protected:
     Server();
-    ~Server() {}
+    ~Server();
 private:
     static Server* unique_instance;
     static mutex mutex_;
