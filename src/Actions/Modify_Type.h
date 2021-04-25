@@ -25,8 +25,6 @@ public:
         string newnum =JSON_Management::GetJSONString("modifyvalue", jsonString);
         string type = Memory_Map::getInstance()->Get_Type(name);
 
-
-
         int varint;
         long varlong;
         float varfloat;

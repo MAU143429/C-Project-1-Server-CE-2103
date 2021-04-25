@@ -27,11 +27,10 @@ public:
     }
 
     Integer(string name, const char *value){
+        this->intvalue = Convert_Value::classify_type<int>("Integer",value);
         this->value_address = Memory_Management::getInstance()->appendElem(intvalue);
         this->name = name;
         this->intvalue = Memory_Management::getInstance()->searchmalloc<int>(value_address);
-        cout<<intvalue<< endl;
-        //this->intvalue = Convert_Value::classify_type<int>("Integer",value);
         this->ref_count = 0;
         this->size = 4;
         this->type = "Integer";
