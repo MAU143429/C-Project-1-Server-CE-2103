@@ -25,9 +25,21 @@ public:
     SimplyList<Data_Type> memory_map;
     static Memory_Map *getInstance();
 
+    /**
+     * @brief Method that doesn't let the Memory_Map be assignable.
+     * @param other
+     */
     Memory_Map(Memory_Map &other) = delete;
+
+    /**
+     * @brief Method that doesn't let the Memory_Map instance be cloneable.
+     */
     void operator=(const Memory_Map &) = delete;
 
+    /**
+     * @brief Appends the Data_Type element to the memory map.
+     * @param element the Data_Type object.
+     */
     //template<typename T>
     void append_list(Data_Type element){
 
@@ -35,7 +47,10 @@ public:
         Memory_Map::getInstance()->PrintMemoryMap(memory_map);
 
     }
-
+    /**
+     * @brief Prints the memory map with the different variables contained in the memory map.
+     * @param simplyList
+     */
     void PrintMemoryMap(SimplyList<Data_Type> simplyList){
 
         cout << " ################################  SERVER MEMORY MAP    ################################ \n";
@@ -76,7 +91,12 @@ public:
         }
         cout << " ################################          END          ################################    \n" << endl;
     }
-
+    /**
+     * @brief Boolean method that searches for an element in the memory map using the name and the type
+     * @param name the name of the variable that gets searched
+     * @param type the type of the variable that gets searched
+     * @return true if the variables is in the memory map and false if its not.
+     */
      bool BoolSearch(string name, string type){
 
         for (int i = 0; i < memory_map.getLen(); ++i) {
@@ -88,7 +108,11 @@ public:
          return false;
 
     }
-
+    /**
+     * @brief Boolean method that searches for the name of the variable
+     * @param name the name that gets searched
+     * @return true if the name is contained in the memory map and false if its not.
+     */
     bool Search_Name(string name){
         cout<<memory_map.getLen()<<endl;
         if(memory_map.getLen() == 0){
@@ -104,7 +128,11 @@ public:
 
     }
 
-
+    /**
+     * @brief Gets the name of the variable searched in the memory map.
+     * @param name the name that gets searched.
+     * @return string of the name of the variable.
+     */
     string Get_Name(string name){
 
         for (int i = 0; i < memory_map.getLen(); ++i) {
@@ -113,7 +141,11 @@ public:
             }
         }
     }
-
+    /**
+     * @brief Gets the type of the variable using the name of the variable contained in the memory map.
+     * @param name
+     * @return
+     */
     string Get_Type(string name){
 
         for (int i = 0; i < memory_map.getLen(); ++i) {
@@ -123,7 +155,13 @@ public:
         }
     }
 
-
+    /**
+     * @brief Method that searches the memory map for an existing variable
+     * @tparam T
+     * @param name
+     * @param type
+     * @param modvalue
+     */
     template<typename T>
     void Modify_Value(string name, string type, T modvalue){
         int address;

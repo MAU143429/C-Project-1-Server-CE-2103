@@ -201,11 +201,7 @@ public:
         cout << stringBuffer.GetString() << endl;
         return stringBuffer.GetString();
     }
-    /**
-     * 
-     * @param ramobject
-     * @return
-     */
+
     static string NewRamLVToJSON(RamLV *ramobject){
         StringBuffer stringBuffer;
         Writer<StringBuffer> writer(stringBuffer);
@@ -248,6 +244,12 @@ public:
         return stringBuffer.GetString();
     }
 
+    /**
+     * @brief Method that gets the key searched from the JSON.
+     * @param key the string that gets searched
+     * @param jsonString  the JSON where the search is done
+     * @return the string key from the JSON.
+     */
     string static GetJSONString(string key, const string &jsonString){
         rapidjson::Document document;
         document.Parse<kParseDefaultFlags>(jsonString.c_str());
