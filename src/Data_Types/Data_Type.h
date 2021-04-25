@@ -16,6 +16,16 @@ public:
     int size;
     int ref_count;
     int value_address;
+    string Memory_Adrr;
+
+    const string &getMemoryAdrr() const {
+        return Memory_Adrr;
+    }
+
+    void setMemoryAdrr(const string &memoryAdrr) {
+        Memory_Adrr = memoryAdrr;
+    }
+
 
     const string &getType() const {
         return type;

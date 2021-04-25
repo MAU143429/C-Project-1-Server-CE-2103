@@ -27,12 +27,16 @@ public:
     }
 
     Integer(string name, const char *value){
+        this->value_address = Memory_Management::getInstance()->appendElem(intvalue);
         this->name = name;
-        this->intvalue = Convert_Value::classify_type<int>("Integer",value);
+        this->intvalue = Memory_Management::getInstance()->searchmalloc<int>(value_address);
+        cout<<intvalue<< endl;
+        //this->intvalue = Convert_Value::classify_type<int>("Integer",value);
         this->ref_count = 0;
         this->size = 4;
-        this->value_address = Memory_Management::getInstance()->appendElem(intvalue);
         this->type = "Integer";
+        this->Memory_Adrr = Memory_Management::getInstance()->getMemory_Address<string>(value_address);
+        cout<< Memory_Adrr <<endl;
         cout<<"Se creo un objeto int de nombre "<< this->name << " con un valor de " << this->intvalue <<" almacenado en el offset numero " << value_address << endl;
     }
 

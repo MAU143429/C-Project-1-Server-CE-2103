@@ -67,9 +67,8 @@ public:
         string name = JSON_Management::GetJSONString("name", jsonString);
         string num = JSON_Management::GetJSONString("value", jsonString);
 
-        cout << "Antes del IF" << endl;
+
         if(!Memory_Map::getInstance()->Search_Name(name)){
-            cout << "Dentro del IF" << endl;
             if(type == "Integer"){
                 auto createint = Integer(JSON_Management::GetJSONString("name", jsonString),num.c_str());
                 Memory_Map::getInstance()->append_list(createint);
@@ -94,12 +93,9 @@ public:
 
             }
         }else{
-            //TODO CREAR EL RESPONSE DE QUE LA VARIABLE YA ESTA EN USO CODIGO 101
-            cout <<"ERROR:EL NOMBRE DE LA VARIABLE QUE DESEAS CREAR YA ESTA EN USO"<<endl;
+
             response->setCode("101");
-            cout << "Número 1" << endl;
             response->setResponse("ERROR:EL NOMBRE DE LA VARIABLE QUE DESEAS CREAR YA ESTA EN USO");
-            cout << "Número 2" << endl;
             return JSON_Management::NewResponseToJSON(response);
 
         }

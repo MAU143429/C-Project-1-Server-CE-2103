@@ -112,6 +112,8 @@ public:
         const string &value = message->getValue();
         const string &modifyvalue = message->getModifyvalue();
         const string &code = message->getCode();
+        const string &RefCount = message->getRefCount();
+        const string &MemoryAddress = message->getMemoryAddress();
 
 
         StringBuffer stringBuffer;
@@ -142,7 +144,11 @@ public:
         writer.Key("code");
         writer.String(code.c_str());
 
+        writer.Key("ref_count");
+        writer.String(RefCount.c_str());
 
+        writer.Key("mem_address");
+        writer.String(MemoryAddress.c_str());
 
         writer.EndObject();
         cout << stringBuffer.GetString() << endl;

@@ -29,14 +29,6 @@ public:
 
     }
 
-    template<typename T>
-    static T Get_DataType(const string &jsonString){
-        string type = JSON_Management::GetJSONString("type", jsonString);
-        string name = JSON_Management::GetJSONString("name", jsonString);
-        return Memory_Map::getInstance()->template Get_Object<string>(name,type);
-
-    }
-
 
 };
 

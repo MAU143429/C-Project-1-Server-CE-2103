@@ -24,6 +24,9 @@ public:
         if (message == "CREATE") {
             verify = Create_Type::Create_DataType<string>(jsonString);
             if (verify.empty()){
+                string varname = JSON_Management::GetJSONString("name", jsonString);
+
+
                 response->setCode("102");
                 response->setResponse("VARIABLE CREADA CON EXITO");
                 return JSON_Management::NewResponseToJSON(response);
@@ -38,6 +41,7 @@ public:
             response->setCode("102");
             response->setResponse("VARIABLE MODIFICADA CON EXITO");
             return JSON_Management::NewResponseToJSON(response);
+
         } else if (message == "SEARCH") {
             cout << "SOY UN ARCHIVO AL QUE VAN A BUSCAR" << endl;
             Search_Type::Search_DataType(jsonString);
