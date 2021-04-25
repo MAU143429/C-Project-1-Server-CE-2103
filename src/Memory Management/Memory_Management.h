@@ -74,7 +74,7 @@ public:
         }
     }
     /**
-     * 
+     *
      * @tparam T
      * @param offset
      * @return
@@ -84,12 +84,23 @@ public:
         T *temp = (T *)ptr;
         return *(temp+offset);
     }
-
+    /**
+     * @brief Modifies a value contained in the malloc using the offset to access it.
+     * @tparam T
+     * @param value
+     * @param offset
+     */
     template<typename T>
     void modifymalloc(T value,int offset){
         T *temp = (T *)ptr;
         *(temp+offset) = value;
     }
+    /**
+     * @brief Getter for the memory address using the offset
+     * @tparam T
+     * @param offset
+     * @return the memory address
+     */
     template<typename T>
     string getMemory_Address(int offset){
         T *temp = (T *)ptr;

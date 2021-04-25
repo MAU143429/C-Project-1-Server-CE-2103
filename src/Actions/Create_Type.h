@@ -32,6 +32,9 @@ static SimplyList<string> *Operator_list;
 class Create_Type {
 
 public:
+    /**
+     * @brief Initializes the operator list.
+     */
     void Init_List(){
         Operator_list = new SimplyList<string>();
         Operator_list->append(SUM_OPERATOR);
@@ -39,7 +42,11 @@ public:
         Operator_list->append(DIV_OPERATOR);
         Operator_list->append(MULTI_OPERATOR);
     }
-
+    /**
+     * @brief Verifies the operator.
+     * @param value
+     * @return a boolean.
+     */
     static bool Operator_Verify(string value){
         std::stringstream mm;
         int counter1 = 0;
@@ -60,6 +67,12 @@ public:
         }
         return false;
     }
+    /**
+     * @brief Method that created a new variable in the memory map, if its already in the memory map it sends an error message to client.
+     * @tparam T
+     * @param jsonString
+     * @return a null string or a string containing the response.
+     */
     template <typename T>
     static T Create_DataType(const string &jsonString){
         auto response = new Response();
