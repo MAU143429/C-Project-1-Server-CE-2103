@@ -19,7 +19,11 @@ public:
     void setLongvar(long longvar) {
         Long::longvar = longvar;
     }
-
+    /**
+     * @brief constructor for the Long class.
+     * @param name
+     * @param value
+     */
     Long(string name, const char *value){
         this->name = name;
         this->longvar = Convert_Value::classify_type<long>("Long",value);

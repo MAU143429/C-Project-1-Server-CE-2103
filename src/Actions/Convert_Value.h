@@ -14,7 +14,13 @@ using namespace std;
 class Convert_Value {
 
 public:
-
+    /**
+     * @brief Classifies the type of the entered variable using the type entered.
+     * @tparam T
+     * @param type
+     * @param value
+     * @return the created variable.
+     */
     template <typename T>
     static T classify_type(const string& type,const char *value){
 
