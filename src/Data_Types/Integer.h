@@ -25,7 +25,11 @@ public:
     void setIntvalue(int intvalue) {
         Integer::intvalue = intvalue;
     }
-
+    /**
+     * @brief constructor for the Integer class.
+     * @param name
+     * @param value
+     */
     Integer(string name, const char *value){
         this->intvalue = Convert_Value::classify_type<int>("Integer",value);
         this->value_address = Memory_Management::getInstance()->appendElem(intvalue);

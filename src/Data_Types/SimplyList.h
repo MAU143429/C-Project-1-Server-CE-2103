@@ -49,18 +49,26 @@ public:
 
     Node<T> *tail = nullptr;
     int len;
-
+    /**
+     * @brief Constructor for the simply list.
+     */
     SimplyList() {
         this->head = NULL;
         this->len = 0;
         this->tail = NULL;
     }
 
-
+    /**
+     * @brief Getter for the head.
+     * @return the head of the list.
+     */
     Node<T> *getHead() const {
         return head;
     }
-
+    /**
+     * @brief Deletes an element of the list.
+     * @param element
+     */
     void del(T element) {
 
         if (element == this->head->getValue()) {
@@ -79,7 +87,10 @@ public:
             }
         }
     }
-
+    /**
+     * @brief Adds an element at the end of the list.
+     * @param element
+     */
     void append(T element) {
         auto *newElement = (Node<T> *) (malloc(sizeof(Node<T>)));
         newElement = new(newElement) Node<T>(element);
@@ -93,7 +104,9 @@ public:
         this->len += 1;
 
     }
-
+    /**
+     * @brief Prints the list.
+     */
     void show() const {
 
         if (this->head == nullptr) {
@@ -108,7 +121,11 @@ public:
             cout << tmp->getValue() << "]" << "\n";
         }
     }
-
+    /**
+     * @brief Gets an element of the list.
+     * @param i
+     * @return gets the value.
+     */
     T get(int i) {
 
         if (i >= this->len) {
@@ -122,7 +139,11 @@ public:
         }
         return tmp->getValue();
     }
-
+    /**
+     * @brief Gets a node of the list.
+     * @param i
+     * @return the node that gets searched.
+     */
     Node<T>* getNode(int i) {
 
         if (i >= this->len) {
@@ -136,7 +157,11 @@ public:
         }
         return tmp;
     }
-
+    /**
+     * @brief Searches an element and tells if its on the list.
+     * @param element
+     * @return true if its on the list, false if not.
+     */
     bool Search(T element) {
         bool result = false;
         Node<T> *tmp = this->head;
@@ -149,15 +174,23 @@ public:
         }
         return result;
     }
-
+    /**
+     *
+     * @param index
+     */
     void delIndex(int index) {
 
     }
-
+    /**
+     * @brief deletes the head.
+     */
     void delHead() {
         this->del(this->head->getValue());
     }
-
+    /**
+     * @brief Getter for the lenght.
+     * @return the lenght of the list.
+     */
     int getLen() {
         return this->len;
     }

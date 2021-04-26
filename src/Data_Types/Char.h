@@ -20,7 +20,11 @@ public:
     void setChaarvalue(char chaarvalue) {
         Char::charvalue = chaarvalue;
     }
-
+    /**
+     * Constructor for the Char class.
+     * @param name
+     * @param value
+     */
     Char(string name, const char *value){
         this->name = name;
         this->charvalue = Convert_Value::classify_type<char>("Char", value);
