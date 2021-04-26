@@ -24,18 +24,15 @@ private:
 public:
     SimplyList<Data_Type> memory_map;
     static Memory_Map *getInstance();
-
     /**
      * @brief Method that doesn't let the Memory_Map be assignable.
      * @param other
      */
     Memory_Map(Memory_Map &other) = delete;
-
     /**
      * @brief Method that doesn't let the Memory_Map instance be cloneable.
      */
     void operator=(const Memory_Map &) = delete;
-
     /**
      * @brief Appends the Data_Type element to the memory map.
      * @param element the Data_Type object.
@@ -97,7 +94,7 @@ public:
      * @param type the type of the variable that gets searched
      * @return true if the variables is in the memory map and false if its not.
      */
-     bool BoolSearch(string name, string type){
+    bool BoolSearch(string name, string type){
 
         for (int i = 0; i < memory_map.getLen(); ++i) {
 
@@ -105,7 +102,7 @@ public:
                 return true;
             }
         }
-         return false;
+        return false;
 
     }
     /**
@@ -127,12 +124,11 @@ public:
         return false;
 
     }
-
     /**
-     * @brief Gets the name of the variable searched in the memory map.
-     * @param name the name that gets searched.
-     * @return string of the name of the variable.
-     */
+    * @brief Gets the name of the variable searched in the memory map.
+    * @param name the name that gets searched.
+    * @return string of the name of the variable.
+    */
     string Get_Name(string name){
 
         for (int i = 0; i < memory_map.getLen(); ++i) {
@@ -151,6 +147,45 @@ public:
         for (int i = 0; i < memory_map.getLen(); ++i) {
             if(memory_map.getNode(i)->getValue().getName() == name){
                 return memory_map.getNode(i)->getValue().getType();
+            }
+        }
+    }
+    /**
+     *
+     * @param name
+     * @return
+     */
+    string Get_MemoryAddress(string name){
+
+        for (int i = 0; i < memory_map.getLen(); ++i) {
+            if(memory_map.getNode(i)->getValue().getName() == name){
+                return memory_map.getNode(i)->getValue().getMemoryAdrr();
+            }
+        }
+    }
+    /**
+     *
+     * @param name
+     * @return
+     */
+    int Get_RefCount(string name){
+
+        for (int i = 0; i < memory_map.getLen(); ++i) {
+            if(memory_map.getNode(i)->getValue().getName() == name){
+                return memory_map.getNode(i)->getValue().getRefCount();
+            }
+        }
+    }
+    /**
+     *
+     * @param name
+     * @return
+     */
+    int Get_Offset(string name){
+
+        for (int i = 0; i < memory_map.getLen(); ++i) {
+            if(memory_map.getNode(i)->getValue().getName() == name){
+                return memory_map.getNode(i)->getValue().getValueAddress();
             }
         }
     }
@@ -185,6 +220,5 @@ public:
 
     }
 };
-
-
 #endif //PROYECTO_1_DATOS_II_SERVER_C__MEMORY_MAP_H
+
