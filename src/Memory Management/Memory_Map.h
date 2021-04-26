@@ -151,9 +151,9 @@ public:
         }
     }
     /**
-     *
+     *  @brief Gets the memory address of the searched variable
      * @param name
-     * @return
+     * @return the memory address
      */
     string Get_MemoryAddress(string name){
 
@@ -164,9 +164,9 @@ public:
         }
     }
     /**
-     *
+     * @brief Gets the reference counter
      * @param name
-     * @return
+     * @return the reference counter
      */
     int Get_RefCount(string name){
 
@@ -177,9 +177,9 @@ public:
         }
     }
     /**
-     *
+     * @brief Getter for the offset
      * @param name
-     * @return
+     * @return the offset
      */
     int Get_Offset(string name){
 
