@@ -13,6 +13,9 @@
 #include "../Data_Types/SimplyList.h"
 using namespace std;
 
+/**
+ * @author The casting data types functionality was based on code retrieved from https://www.geeksforgeeks.org/atol-atoll-and-atof-functions-in-c-c/ and
+ */
 
 class Cast_to_Type {
 

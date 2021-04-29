@@ -46,6 +46,7 @@ public:
     /**
      * @brief Initializes the server.
      * @return and integer based on the if the listening socket couldn't be created.
+     * @author Sloan Kelly based on code retrieved from https://gist.github.com/codehoose/020c6213f481aee76ea9b096acaddfaf
      */
     int InitServer(){
         // Create a socket
