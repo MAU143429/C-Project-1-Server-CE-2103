@@ -128,9 +128,9 @@ public:
      */
     T get(int i) {
 
-        if (i >= this->len) {
-            return 0;
-        }
+        //if (i >= this->len) {
+         //   return 0;
+        //}
         Node<T> *tmp = this->head;
         for (int j = 0; j < i; ++j) {
 
@@ -171,6 +171,7 @@ public:
                 break;
             }
             tmp = tmp->getNext();
+
         }
         return result;
     }

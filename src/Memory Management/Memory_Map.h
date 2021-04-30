@@ -204,6 +204,7 @@ public:
 
             if(memory_map.getNode(i)->getValue().getName() == name and memory_map.getNode(i)->getValue().getType() == type){
                 address = memory_map.getNode(i)->getValue().getValueAddress();
+                memory_map.get(i).setRefCount(memory_map.getNode(i)->getValue().getRefCount()+1);
                 Memory_Management::getInstance()->template modifymalloc(modvalue,address);
                 PrintMemoryMap(memory_map);
                 cout<< "VALOR MODIFICADO CON EXITO"<<endl;

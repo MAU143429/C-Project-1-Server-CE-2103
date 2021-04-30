@@ -50,7 +50,7 @@ public:
             response->setResponse("VARIABLE MODIFICADA CON EXITO");
             response->setName(JSON_Management::GetJSONString("name",jsonString));
            // TODO ARREGLAR EL VALOR DE SETVALUE
-            response->setValue(Memory_Management::getInstance()->Get_mallocvalue<string>(Memory_Map::getInstance()->Get_Offset(JSON_Management::GetJSONString("name",jsonString))));
+            response->setValue(JSON_Management::GetJSONString("modifyvalue",jsonString));
             response->setMemoryAddress(Memory_Map::getInstance()->Get_MemoryAddress(JSON_Management::GetJSONString("name",jsonString)));
             response->setRefCount(Memory_Map::getInstance()->Get_RefCount(JSON_Management::GetJSONString("name",jsonString)));
 

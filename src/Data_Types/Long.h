@@ -29,7 +29,7 @@ public:
         this->value_address = Memory_Management::getInstance()->appendElem(longvar);
         this->name = name;
         this->longvar = Memory_Management::getInstance()->searchmalloc<long>(value_address);
-        this->ref_count = 0;
+        this->ref_count = 1;
         this->size = 8;
         this->type = "Long";
         this->Memory_Adrr = Memory_Management::getInstance()->getMemory_Address<string>(value_address);

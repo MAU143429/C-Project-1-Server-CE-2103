@@ -35,7 +35,7 @@ public:
         this->value_address = Memory_Management::getInstance()->appendElem(intvalue);
         this->name = name;
         this->intvalue = Memory_Management::getInstance()->searchmalloc<int>(value_address);
-        this->ref_count = 0;
+        this->ref_count = 1;
         this->size = 4;
         this->type = "Integer";
         this->Memory_Adrr = Memory_Management::getInstance()->getMemory_Address<string>(value_address);

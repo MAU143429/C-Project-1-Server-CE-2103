@@ -30,7 +30,7 @@ public:
         this->name = name;
         this->value_address = Memory_Management::getInstance()->appendElem(charvalue);
         this->charvalue = Memory_Management::getInstance()->searchmalloc<char>(value_address);
-        this->ref_count = 0;
+        this->ref_count = 1;
         this->size = 1;
         this->type = "Char";
         this->Memory_Adrr = Memory_Management::getInstance()->getMemory_Address<string>(value_address);

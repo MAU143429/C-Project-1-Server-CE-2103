@@ -85,6 +85,7 @@ public:
             if(type == "Integer"){
                 auto createint = Integer(name,num.c_str());
                 Memory_Map::getInstance()->append_list(createint);
+
                 return "";
             }else if(type == "Long"){
                 auto createlong = Long(name,num.c_str());

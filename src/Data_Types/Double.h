@@ -31,7 +31,7 @@ public:
         this->value_address = Memory_Management::getInstance()->appendElem(doublevalue);
         this->name = name;
         this->doublevalue = Memory_Management::getInstance()->searchmalloc<double>(value_address);
-        this->ref_count = 0;
+        this->ref_count = 1;
         this->size = 8;
         this->type="Double";
         this->Memory_Adrr = Memory_Management::getInstance()->getMemory_Address<string>(value_address);

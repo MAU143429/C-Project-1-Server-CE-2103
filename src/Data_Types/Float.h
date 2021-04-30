@@ -32,7 +32,7 @@ public:
         this->value_address = Memory_Management::getInstance()->appendElem(floatvalue);
         this->name = name;
         this->floatvalue = Memory_Management::getInstance()->searchmalloc<float>(value_address);
-        this->ref_count = 0;
+        this->ref_count = 1;
         this->size = 4;
         this->type="Float";
         this->Memory_Adrr = Memory_Management::getInstance()->getMemory_Address<string>(value_address);
