@@ -83,24 +83,24 @@ public:
 
         if(!Memory_Map::getInstance()->Search_Name(name)){
             if(type == "Integer"){
-                auto createint = Integer(JSON_Management::GetJSONString("name", jsonString),num.c_str());
+                auto createint = Integer(name,num.c_str());
                 Memory_Map::getInstance()->append_list(createint);
                 return "";
             }else if(type == "Long"){
-                auto createlong = Long(JSON_Management::GetJSONString("name", jsonString),num.c_str());
+                auto createlong = Long(name,num.c_str());
                 Memory_Map::getInstance()->append_list(createlong);
                 return "";
             }else if(type == "Float"){
-                auto createfloat = Float(JSON_Management::GetJSONString("name", jsonString),num.c_str());
+                auto createfloat = Float(name,num.c_str());
                 Memory_Map::getInstance()->append_list(createfloat);
                 return "";
 
             }else if(type == "Double"){
-                auto createdouble = Double(JSON_Management::GetJSONString("name", jsonString),num.c_str());
+                auto createdouble = Double(name,num.c_str());
                 Memory_Map::getInstance()->append_list(createdouble);
                 return "";
             }else if(type == "Char"){
-                auto createchar = Char(JSON_Management::GetJSONString("name", jsonString),num.c_str());
+                auto createchar = Char(name,num.c_str());
                 Memory_Map::getInstance()->append_list(createchar);
                 return "";
 
