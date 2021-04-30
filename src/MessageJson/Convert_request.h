@@ -32,7 +32,7 @@ public:
 
 
                 response->setCode("100");
-                response->setResponse("VARIABLE CREADA CON EXITO");
+                response->setResponse("EL SERVIDOR HA CREADO LA VARIABLE CON EXITO");
                 response->setName(JSON_Management::GetJSONString("name",jsonString));
                 response->setValue(JSON_Management::GetJSONString("value",jsonString));
                 response->setMemoryAddress(Memory_Map::getInstance()->Get_MemoryAddress(JSON_Management::GetJSONString("name",jsonString)));
@@ -47,7 +47,7 @@ public:
             cout << "SOY UN ARCHIVO AL QUE VAN A MODIFICAR" << endl;
             Modify_Type::Modify_Datatype<string>(jsonString);
             response->setCode("100");
-            response->setResponse("VARIABLE MODIFICADA CON EXITO");
+            response->setResponse("EL SERVIDOR HA MODIFICADO LA VARIABLE CON EXITO");
             response->setName(JSON_Management::GetJSONString("name",jsonString));
 
             if(Memory_Map::getInstance()->Get_Type(JSON_Management::GetJSONString("name",jsonString)) == "Char"){
