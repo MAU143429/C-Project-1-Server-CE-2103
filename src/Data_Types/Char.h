@@ -26,7 +26,7 @@ public:
      * @param value
      */
     Char(string name, const char *value){
-        this->charvalue = Convert_Value::classify_type<char>("Char", value);
+        this->charvalue = Convert_Value::classify_type<char>("Char",value);
         this->name = name;
         this->value_address = Memory_Management::getInstance()->appendElem(charvalue);
         this->charvalue = Memory_Management::getInstance()->searchmalloc<char>(value_address);
@@ -37,6 +37,7 @@ public:
         cout << "Se creo un objeto char de nombre" << this->name << "con un valor de" << this->charvalue << " almacenado en el offset numero " << value_address << endl;
 
     };
+
 
 };
 

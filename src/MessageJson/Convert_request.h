@@ -49,8 +49,14 @@ public:
             response->setCode("100");
             response->setResponse("VARIABLE MODIFICADA CON EXITO");
             response->setName(JSON_Management::GetJSONString("name",jsonString));
-           // TODO ARREGLAR EL VALOR DE SETVALUE
-            response->setValue(JSON_Management::GetJSONString("modifyvalue",jsonString));
+
+            if(Memory_Map::getInstance()->Get_Type(JSON_Management::GetJSONString("name",jsonString)) == "Char"){
+                string char1;
+                char1 = JSON_Management::GetJSONString("modifyvalue",jsonString)[1];
+                response->setValue(char1);
+            }else{
+                response->setValue(JSON_Management::GetJSONString("modifyvalue",jsonString));
+            }
             response->setMemoryAddress(Memory_Map::getInstance()->Get_MemoryAddress(JSON_Management::GetJSONString("name",jsonString)));
             response->setRefCount(Memory_Map::getInstance()->Get_RefCount(JSON_Management::GetJSONString("name",jsonString)));
 

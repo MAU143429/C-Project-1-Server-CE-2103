@@ -58,7 +58,9 @@ public:
 
 
         }else if(type == "Char"){
-            varchar = Cast_to_Type::Cast_char<char>(newnum.c_str());
+            string char1;
+            char1 = newnum[1];
+            varchar = Cast_to_Type::Cast_char<char>(char1.c_str());
             Memory_Map::getInstance()->template Modify_Value(name,type,varchar);
 
 
