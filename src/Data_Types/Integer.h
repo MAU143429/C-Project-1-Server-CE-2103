@@ -39,7 +39,6 @@ public:
         this->size = 4;
         this->type = "Integer";
         this->Memory_Adrr = Memory_Management::getInstance()->getMemory_Address<string>(value_address);
-        cout<< Memory_Adrr <<endl;
         cout<<"Se creo un objeto int de nombre "<< this->name << " con un valor de " << this->intvalue <<" almacenado en el offset numero " << value_address << endl;
     }
 

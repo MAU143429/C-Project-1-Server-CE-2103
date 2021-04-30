@@ -27,12 +27,14 @@ public:
      * @param value
      */
     Double(string name, const char *value){
-        this->name = name;
         this->doublevalue = Convert_Value::classify_type<double>("Double",value);
+        this->value_address = Memory_Management::getInstance()->appendElem(doublevalue);
+        this->name = name;
+        this->doublevalue = Memory_Management::getInstance()->searchmalloc<double>(value_address);
         this->ref_count = 0;
         this->size = 8;
-        this->value_address = Memory_Management::getInstance()->appendElem(doublevalue);
         this->type="Double";
+        this->Memory_Adrr = Memory_Management::getInstance()->getMemory_Address<string>(value_address);
         cout<<"Se creo un objeto double de nombre"<< this->name << "con un valor de" << this->doublevalue << " almacenado en el offset numero " << value_address << endl;
     }
 

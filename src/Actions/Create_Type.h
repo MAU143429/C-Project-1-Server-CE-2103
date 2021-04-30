@@ -103,7 +103,6 @@ public:
                 auto createchar = Char(name,num.c_str());
                 Memory_Map::getInstance()->append_list(createchar);
                 return "";
-
             }
         }else{
 
