@@ -37,6 +37,7 @@ public:
                 response->setValue(JSON_Management::GetJSONString("value",jsonString));
                 response->setMemoryAddress(Memory_Map::getInstance()->Get_MemoryAddress(JSON_Management::GetJSONString("name",jsonString)));
                 response->setRefCount(Memory_Map::getInstance()->Get_RefCount(JSON_Management::GetJSONString("name",jsonString)));
+                response->setPrint("1");
                 return JSON_Management::NewResponseToJSON(response);
             }else{
                 return verify;
@@ -49,6 +50,7 @@ public:
             response->setCode("100");
             response->setResponse("EL SERVIDOR HA MODIFICADO LA VARIABLE CON EXITO");
             response->setName(JSON_Management::GetJSONString("name",jsonString));
+            response->setPrint("1");
 
             if(Memory_Map::getInstance()->Get_Type(JSON_Management::GetJSONString("name",jsonString)) == "Char"){
                 string char1;
@@ -64,10 +66,8 @@ public:
 
         } else if (message == "SEARCH") {
             cout << "SOY UN ARCHIVO AL QUE VAN A BUSCAR" << endl;
-            Search_Type::Search_DataType(jsonString);
-            response->setCode("102");
-            response->setResponse("VARIABLE BUSCADA CON EXITO");
-            return JSON_Management::NewResponseToJSON(response);
+            string result = Search_Type::Search_DataType(jsonString);
+            return result;
         }
     }
 };

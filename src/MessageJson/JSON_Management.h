@@ -179,11 +179,26 @@ public:
         Writer<StringBuffer> writer(stringBuffer);
         writer.StartObject();
 
+        if (!response->getPrint().empty()){
+            writer.Key("print");
+            writer.String(response->getPrint().c_str());
+        } else{
+            writer.Key("print");
+            writer.Null();
+        }
+
         if (!response->getResponse().empty()){
             writer.Key("response");
             writer.String(response->getResponse().c_str());
         } else{
             writer.Key("response");
+            writer.Null();
+        }
+        if (!response->getType().empty()){
+            writer.Key("type");
+            writer.String(response->getType().c_str());
+        } else{
+            writer.Key("type");
             writer.Null();
         }
 

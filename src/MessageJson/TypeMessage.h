@@ -10,7 +10,11 @@ using namespace std;
 class TypeMessage {
 
 public:
-    string type, name, modifyvalue, action, value, size, response, code,memory_address,ref_count;
+    string type, name, modifyvalue, action, value, size, response, code,memory_address,ref_count, print;
+
+    const string &getPrint() const;
+
+    void setPrint(const string &print);
 
     const string &getMemoryAddress() const;
 

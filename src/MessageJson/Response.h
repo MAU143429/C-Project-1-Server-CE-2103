@@ -13,7 +13,25 @@ public:
     string name;
     string value;
     string memory_address;
+    string print;
+    string type;
     int ref_count;
+
+    const string &getType() const {
+        return type;
+    }
+
+    void setType(const string &type) {
+        Response::type = type;
+    }
+
+    const string &getPrint() const {
+        return print;
+    }
+
+    void setPrint(const string &print) {
+        Response::print = print;
+    }
 
     int getRefCount() const {
         return ref_count;

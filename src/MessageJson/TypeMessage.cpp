@@ -83,3 +83,11 @@ const string &TypeMessage::getRefCount() const {
 void TypeMessage::setRefCount(const string &refCount) {
     ref_count = refCount;
 }
+
+const string &TypeMessage::getPrint() const {
+    return print;
+}
+
+void TypeMessage::setPrint(const string &print) {
+    TypeMessage::print = print;
+}

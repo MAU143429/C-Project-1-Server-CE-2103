@@ -190,6 +190,7 @@ public:
         }
     }
 
+
     /**
      * @brief Method that searches the memory map for an existing variable
      * @tparam T
