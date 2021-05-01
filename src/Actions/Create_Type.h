@@ -107,7 +107,7 @@ public:
             }
         }else{
 
-            response->setCode("101");
+            response->setCode("100");
             response->setResponse("ERROR:EL NOMBRE DE LA VARIABLE QUE DESEAS CREAR YA ESTA EN USO");
             return JSON_Management::NewResponseToJSON(response);
 
