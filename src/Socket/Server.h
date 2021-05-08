@@ -48,7 +48,7 @@ public:
      * @return and integer based on the if the listening socket couldn't be created.
      * @author Sloan Kelly based on code retrieved from https://gist.github.com/codehoose/020c6213f481aee76ea9b096acaddfaf
      */
-    int InitServer(){
+    int InitServer(int port){
         // Create a socket
         int listening = socket(AF_INET, SOCK_STREAM, 0);
         if (listening == -1)
@@ -58,9 +58,12 @@ public:
         }
 
         // Bind the ip address and port to a socket
+
+
+
         sockaddr_in hint;
         hint.sin_family = AF_INET;
-        hint.sin_port = htons(54000);
+        hint.sin_port = htons(port);
         inet_pton(AF_INET, "0.0.0.0", &hint.sin_addr);
 
         bind(listening, (sockaddr*)&hint, sizeof(hint));
