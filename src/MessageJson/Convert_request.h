@@ -70,7 +70,7 @@ public:
             return result;
         }else if(message == "STOP"){
             Memory_Map::getInstance()->Save_Info();
-            response->setCode("100");
+            response->setCode("102");
             response->setResponse("EL SERVIDOR HA GUARDADO LAS DIRECCIONES DE MEMORIA CON EXITO");
             return JSON_Management::NewResponseToJSON(response);
 
