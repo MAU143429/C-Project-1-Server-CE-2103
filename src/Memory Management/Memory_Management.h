@@ -63,6 +63,7 @@ public:
             *(temp+offset) = element;
             addr = offset;
             offset++;
+
             return addr;
         }else{
             int newaddr = Recycling_addr.getFirst();
@@ -70,6 +71,7 @@ public:
             *(temp+newaddr) = element;
             addr = newaddr;
             Recycling_addr.delFirst();
+            cout<< "VALOR DEL MALLOC EN LA POS 1 = " << searchmalloc<int>(newaddr) << endl;
             return addr;
         }
     }

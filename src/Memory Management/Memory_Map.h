@@ -37,10 +37,18 @@ public:
      * @brief Appends the Data_Type element to the memory map.
      * @param element the Data_Type object.
      */
-    //template<typename T>
-    void append_list(Data_Type element){
 
+    void append_list(Data_Type element){
+        if(memory_map.getLen() == 0){
+            SimplyList<Data_Type> memory_map;
+        }
+        cout<< "LEN ANTES DE AGREGADO EL VALOR " <<memory_map.getLen() <<endl;
         memory_map.append(element);
+        Memory_Management::getInstance()->Recycling_addr.show();
+        cout<< "LEN DESPUES DE AGREGADO " << memory_map.getLen() <<endl;
+        cout<< "NOMBRE " << memory_map.getNode(0)->getValue().getName() <<endl;
+
+
         Memory_Map::getInstance()->PrintMemoryMap(memory_map);
 
     }
@@ -51,12 +59,12 @@ public:
     void PrintMemoryMap(SimplyList<Data_Type> simplyList){
 
         cout << " ################################  SERVER MEMORY MAP    ################################ \n";
+
         for (int i = 0; i < simplyList.getLen(); ++i) {
 
             string name = simplyList.getNode(i)->getValue().getName();
             string type = simplyList.getNode(i)->getValue().getType();
             int count = simplyList.getNode(i)->getValue().getRefCount();
-            int size = simplyList.getNode(i)->getValue().getSize();
             int position = simplyList.getNode(i)->getValue().getValueAddress();
 
             cout<< "                                                                                         \n" <<
@@ -111,7 +119,6 @@ public:
      * @return true if the name is contained in the memory map and false if its not.
      */
     bool Search_Name(string name){
-        cout<<memory_map.getLen()<<endl;
         if(memory_map.getLen() == 0){
             return false;
         }
@@ -218,9 +225,41 @@ public:
             }
 
         }
+    }
+    static void Save_Info(){
+        int addr;
+        while(Memory_Map::getInstance()->memory_map.getLen() != 0){
+            string vartemp = Memory_Map::getInstance()->memory_map.get(0).getName();
+            addr = Memory_Map::getInstance()->Get_Offset(vartemp);
+            Memory_Management::getInstance()->Recycling_addr.addAddress(addr);
+            Memory_Map::getInstance()->memory_map.delHeadNode();
+
+        }
+        Memory_Map::getInstance()->memory_map.setHead(nullptr);
+        Memory_Management::getInstance()->Recycling_addr.show();
 
 
     }
+
+
+    /**
+     *
+     *
+     * [var1,var2,var3] //stop
+     *
+     * [var1,var2,var3,varnew1]
+     * [var2,var3.varnew1]
+     * [var3.varnew1]
+     * [varnew1]
+     *
+     *
+     *
+     */
+
+
+
+
+
 };
 #endif //PROYECTO_1_DATOS_II_SERVER_C__MEMORY_MAP_H
 

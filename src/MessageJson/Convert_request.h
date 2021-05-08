@@ -42,7 +42,7 @@ public:
             }else{
                 return verify;
             }
-            //TODO AGREGAR VALOR DE LA VARIBLE EM EL RESPONSE, PEDIR QUE DATA TYPE RETORNE EL NONMBRE
+
 
         } else if (message == "MODIFY") {
             cout << "SOY UN ARCHIVO AL QUE VAN A MODIFICAR" << endl;
@@ -68,6 +68,12 @@ public:
             cout << "SOY UN ARCHIVO AL QUE VAN A BUSCAR" << endl;
             string result = Search_Type::Search_DataType(jsonString);
             return result;
+        }else if(message == "STOP"){
+            Memory_Map::getInstance()->Save_Info();
+            response->setCode("100");
+            response->setResponse("EL SERVIDOR HA GUARDADO LAS DIRECCIONES DE MEMORIA CON EXITO");
+            return JSON_Management::NewResponseToJSON(response);
+
         }
     }
 };

@@ -40,6 +40,13 @@ public:
     void delFirst(){
         this->Recycling.delHead();
     }
+
+    /**
+     * @brief Prints the list.
+     */
+    void show() const {
+        Recycling.show();
+    }
 };
 
 #endif //PROYECTO_1_DATOS_II_SERVER_C__RECYCLING_MALLOC_H

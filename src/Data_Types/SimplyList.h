@@ -188,6 +188,25 @@ public:
     void delHead() {
         this->del(this->head->getValue());
     }
+
+    /**
+     * @brief deletes the head.
+     */
+    void delHeadNode() {
+        if (head == NULL){
+            cout<<"List empty"<<endl;
+        }else if(head->getNext() == nullptr){
+            Node<T> *temp = head;
+            this->len --;
+            delete temp;
+
+        }else{
+            Node<T> *temp = head;
+            head = head->getNext();
+            this->len --;
+            delete temp;
+        }
+    }
     /**
      * @brief Getter for the lenght.
      * @return the lenght of the list.
