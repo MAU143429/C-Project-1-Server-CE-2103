@@ -7,16 +7,21 @@
 
 using namespace std;
 
-void RunServer(){
+void RunServer(int port){
     cout << "Server is running" << endl;
-    Server::getInstance()->InitServer();
+    Server::getInstance()->InitServer(port);
 
 }
 
 void main_v2(int size){
     Memory_Management::getInstance()->InitMalloc(size);
     cout<<"MALLOC SIZE IS " << size << endl;
-    thread runs (RunServer);
+    int port;
+    string userInput;
+    cout<< "Define the port of the server: " ;
+    getline(cin, userInput);
+    port = atoi(userInput.c_str());
+    thread runs (RunServer,port);
     runs.join();
 }
 int main() {
