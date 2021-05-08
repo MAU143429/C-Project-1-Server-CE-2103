@@ -13,12 +13,19 @@ void RunServer(){
 
 }
 
-int main() {
-    Memory_Management::getInstance()->InitMalloc(10000);
-
+void main_v2(int size){
+    Memory_Management::getInstance()->InitMalloc(size);
+    cout<<"MALLOC SIZE IS " << size << endl;
     thread runs (RunServer);
-
     runs.join();
+}
+int main() {
+    int malloc_size;
+    string userInput;
+    cout<< "Define the size of the malloc(bytes): " ;
+    getline(cin, userInput);
+    malloc_size = atoi(userInput.c_str());
+    main_v2(malloc_size);
 
     return 0;
 }
