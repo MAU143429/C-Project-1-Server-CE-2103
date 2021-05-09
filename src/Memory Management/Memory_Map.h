@@ -46,9 +46,6 @@ public:
         memory_map.append(element);
         Memory_Management::getInstance()->Recycling_addr.show();
         cout<< "LEN DESPUES DE AGREGADO " << memory_map.getLen() <<endl;
-        cout<< "NOMBRE " << memory_map.getNode(0)->getValue().getName() <<endl;
-
-
         Memory_Map::getInstance()->PrintMemoryMap(memory_map);
 
     }
