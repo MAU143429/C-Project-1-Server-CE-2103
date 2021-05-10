@@ -225,16 +225,14 @@ public:
     }
     static void Save_Info(){
         int addr;
-        int cont = 0;
-        while(cont < Memory_Map::getInstance()->memory_map.getLen()){
+        while(Memory_Map::getInstance()->memory_map.getLen() != 0){
             string vartemp = Memory_Map::getInstance()->memory_map.get(0).getName();
             addr = Memory_Map::getInstance()->Get_Offset(vartemp);
             Memory_Management::getInstance()->Recycling_addr.addAddress(addr);
             Memory_Map::getInstance()->memory_map.delHeadNode();
-            cont++;
 
         }
-        //Memory_Map::getInstance()->memory_map.setHead(nullptr);
+        Memory_Map::getInstance()->memory_map.setHead(nullptr);
         Memory_Management::getInstance()->Recycling_addr.show();
 
 
