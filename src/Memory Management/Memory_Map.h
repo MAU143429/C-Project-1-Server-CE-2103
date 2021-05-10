@@ -42,10 +42,8 @@ public:
         if(memory_map.getLen() == 0){
             SimplyList<Data_Type> memory_map;
         }
-        cout<< "LEN ANTES DE AGREGADO EL VALOR " <<memory_map.getLen() <<endl;
         memory_map.append(element);
-        Memory_Management::getInstance()->Recycling_addr.show();
-        cout<< "LEN DESPUES DE AGREGADO " << memory_map.getLen() <<endl;
+        //Memory_Management::getInstance()->Recycling_addr.show();
         Memory_Map::getInstance()->PrintMemoryMap(memory_map);
 
     }
@@ -233,30 +231,8 @@ public:
 
         }
         Memory_Map::getInstance()->memory_map.setHead(nullptr);
-        Memory_Management::getInstance()->Recycling_addr.show();
-
 
     }
-
-
-    /**
-     *
-     *
-     * [var1,var2,var3] //stop
-     *
-     * [var1,var2,var3,varnew1]
-     * [var2,var3.varnew1]
-     * [var3.varnew1]
-     * [varnew1]
-     *
-     *
-     *
-     */
-
-
-
-
-
 };
 #endif //PROYECTO_1_DATOS_II_SERVER_C__MEMORY_MAP_H
 
