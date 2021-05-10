@@ -38,9 +38,8 @@ public:
      * @brief Deletes the head of the list.
      */
     void delFirst(){
-        this->Recycling.delHead();
+        this->Recycling.delHeadNode();
     }
-
     /**
      * @brief Prints the list.
      */

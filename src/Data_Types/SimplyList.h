@@ -193,18 +193,15 @@ public:
      * @brief deletes the head.
      */
     void delHeadNode() {
-        if (head == NULL){
-            cout<<"List empty"<<endl;
-        }else if(head->getNext() == nullptr){
-            Node<T> *temp = head;
-            this->len --;
-            delete temp;
+        Node<T> *tmp = this->head;
 
-        }else{
-            Node<T> *temp = head;
-            head = head->getNext();
-            this->len --;
-            delete temp;
+        if (tmp == nullptr){
+            cout << "The list is empty" << endl;
+        }else if(this->head != nullptr){
+            this->setHead(this->head->getNext());
+            tmp->setNext(nullptr);
+            delete tmp;
+            this->len--;
         }
     }
     /**
