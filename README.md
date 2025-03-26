@@ -2,7 +2,7 @@
 
 ## 📘 Overview
 
-This repository contains the server-side implementation for the project **C!**, a pseudo-language and virtual computing platform created for the course CE2103 — Algoritmos y Estructuras de Datos II at Instituto Tecnológico de Costa Rica.
+This repository contains the server-side implementation for the project **C!**, a pseudo-language and virtual computing platform created for the course CE-2103 — Algoritmos y Estructuras de Datos II at Instituto Tecnológico de Costa Rica.
 
 C! is a structured, simplified programming language designed to simulate fundamental programming operations such as variable declarations, control structures, function calls, and logical processing. This repository focuses on building the backend engine capable of **parsing, interpreting, and executing** C! code while communicating with a graphical client application.
 
